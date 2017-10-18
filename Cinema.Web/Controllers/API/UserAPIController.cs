@@ -48,7 +48,6 @@ namespace Cinema.Web.Controllers
             return CreateHttpResponse(request, () =>
             {
                 var result = UserManager.FindByIdAsync(id).Result;
-
                 if (result != null)
                 {
                     return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result.ToViewModel()));

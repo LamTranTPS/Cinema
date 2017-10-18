@@ -1,0 +1,16 @@
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Release\Cinema.Model.dll.config
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Release\Cinema.Model.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Release\Cinema.Model.pdb
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Release\Cinema.Common.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Release\EntityFramework.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Release\Microsoft.AspNet.Identity.Core.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Release\Cinema.Common.pdb
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Release\EntityFramework.xml
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Release\Microsoft.AspNet.Identity.Core.xml
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\obj\Release\Cinema.Model.csprojResolveAssemblyReference.cache
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\obj\Release\Cinema.Model.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\obj\Release\Cinema.Model.pdb

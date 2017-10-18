@@ -44,6 +44,6 @@
     "commit": "014fc4a33558cae278d064f59708d94876dc2054"
   },
   "_source": "https://github.com/eriktufvesson/ngBootbox.git",
-  "_target": "~0.2.0",
+  "_target": "0.2.0",
   "_originalSource": "ngBootbox"
 }

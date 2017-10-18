@@ -1,0 +1,4 @@
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Common\bin\Release\Cinema.Common.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Common\bin\Release\Cinema.Common.pdb
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Common\obj\Release\Cinema.Common.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Common\obj\Release\Cinema.Common.pdb

@@ -1,0 +1,39 @@
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\obj\Debug\Cinema.Service.csprojResolveAssemblyReference.cache
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\bin\Debug\Cinema.Service.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\bin\Debug\Cinema.Service.pdb
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\bin\Debug\Cinema.Common.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\bin\Debug\Cinema.Data.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\bin\Debug\Cinema.Model.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\bin\Debug\EntityFramework.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\bin\Debug\Cinema.Common.pdb
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\bin\Debug\Cinema.Data.pdb
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\bin\Debug\Cinema.Model.pdb
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\bin\Debug\EntityFramework.xml
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\obj\Debug\Cinema.Service.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\obj\Debug\Cinema.Service.pdb
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Service\bin\Debug\Cinema.Service.dll
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Service\bin\Debug\Cinema.Service.pdb
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Service\bin\Debug\Cinema.Common.dll
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Service\bin\Debug\Cinema.Data.dll
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Service\bin\Debug\Cinema.Model.dll
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Service\bin\Debug\EntityFramework.dll
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Service\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Service\bin\Debug\Cinema.Common.pdb
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Service\bin\Debug\Cinema.Data.pdb
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Service\bin\Debug\Cinema.Data.dll.config
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Service\bin\Debug\Cinema.Model.pdb
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Service\bin\Debug\Cinema.Model.dll.config
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Service\bin\Debug\EntityFramework.xml
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Service\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Service\obj\Debug\Cinema.Service.csprojResolveAssemblyReference.cache
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Service\obj\Debug\Cinema.Service.dll
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Service\obj\Debug\Cinema.Service.pdb
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\bin\Debug\Cinema.Data.dll.config
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\bin\Debug\Cinema.Model.dll.config
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Service\obj\Debug\Cinema.Service.csproj.CoreCompileInputs.cache

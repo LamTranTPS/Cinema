@@ -1,0 +1,33 @@
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Debug\Cinema.Model.dll.config
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Debug\Cinema.Model.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Debug\Cinema.Model.pdb
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Debug\Cinema.Common.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Debug\EntityFramework.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Debug\Cinema.Common.pdb
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Debug\EntityFramework.xml
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\obj\Debug\Cinema.Model.csprojResolveAssemblyReference.cache
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\obj\Debug\Cinema.Model.dll
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\obj\Debug\Cinema.Model.pdb
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Model\bin\Debug\Cinema.Model.dll.config
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Model\bin\Debug\Cinema.Model.dll
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Model\bin\Debug\Cinema.Model.pdb
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Model\bin\Debug\Cinema.Common.dll
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Model\bin\Debug\EntityFramework.dll
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Model\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Model\bin\Debug\Cinema.Common.pdb
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Model\bin\Debug\EntityFramework.xml
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Model\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Model\obj\Debug\Cinema.Model.csprojResolveAssemblyReference.cache
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Model\obj\Debug\Cinema.Model.dll
+C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Model\obj\Debug\Cinema.Model.pdb
+C:\Users\lam.tran\Documents\GIT\Cinema\Cinema.Model\obj\Debug\Cinema.Model.csproj.CoreCompileInputs.cache

@@ -29,6 +29,6 @@
     "commit": "241db89b3d4c2e284759d0a4bf61fe9aa1039076"
   },
   "_source": "https://github.com/the-cormoran/angular-loaders.git",
-  "_target": "~1.0.0",
+  "_target": "1.0.0",
   "_originalSource": "angular-loaders"
 }
