@@ -4,7 +4,7 @@
     userListController.$inject = ["$scope", "apiService", "notifyService", "$ngBootbox"];
     function userListController($scope, apiService, notifyService, $ngBootbox) {
         $scope.page = 0;
-        $scope.pageSize = 10;
+        $scope.pageSize = 5;
         $scope.pagesCount = 0;
         $scope.totalCount = 0;
         $scope.listUser = [];
@@ -37,13 +37,13 @@
                 apiService.get("/api/Users/delete/" + id, null, function (result) {
                     if (result.data.success) {
                         notifyService.displaySuccess('Deleted!');
-                        getListProduct($scope.page);
+                        getListUser($scope.page);
                     } else {
                         notifyService.displayWarning('Error!');
                     }
                 }, function (error) {
                     $scope.error = error;
-                    notifyService.displayError(error.xhrStatus);
+                    notifyService.displayError(error);
                 });
             });
         }

@@ -24,7 +24,8 @@
                     authData.authenticationData.IsAuthenticated = true;
                     authData.authenticationData.userName = userName;
                     deferred.resolve(null);
-                    }, function (err, status) {
+                    },
+                    function (err, status) {
                     authData.authenticationData.IsAuthenticated = false;
                     authData.authenticationData.userName = "";
                     deferred.resolve(err.data);
