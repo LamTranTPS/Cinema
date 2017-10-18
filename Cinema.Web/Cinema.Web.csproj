@@ -264,6 +264,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\API\CinemaAPIController.cs" />
+    <Compile Include="Controllers\API\LocationAPIController.cs" />
     <Compile Include="Controllers\API\CinemaChainAPIController.cs" />
     <Compile Include="Controllers\API\RoleAPIController.cs" />
     <Compile Include="Controllers\API\UserAPIController.cs" />
@@ -279,10 +280,12 @@
     <Compile Include="Models\API\AccountLogin.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\API\ApiResult.cs" />
+    <Compile Include="Models\Extensions\CinemaExtension.cs" />
     <Compile Include="Models\Extensions\UserExtension.cs" />
     <Compile Include="Models\Extensions\RoleExtension.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MeViewModels.cs" />
+    <Compile Include="Models\ViewModels\CinemaViewModel.cs" />
     <Compile Include="Models\ViewModels\UserViewModel.cs" />
     <Compile Include="Models\ViewModels\RoleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -295,6 +298,8 @@
     <Content Include="app\compoments\cinemas\cinemaListController.js" />
     <Content Include="app\compoments\cinemas\cinemaListView.html" />
     <Content Include="app\compoments\cinemas\cinemas.module.js" />
+    <Content Include="app\compoments\cinemas\cinemaAddController.js" />
+    <Content Include="app\compoments\cinemas\cinemaAddView.html" />
     <Content Include="app\compoments\homeController.js" />
     <Content Include="app\compoments\login\loginController.js" />
     <Content Include="app\compoments\login\loginView.html" />

@@ -58,24 +58,8 @@ namespace Cinema.Web.Controllers
         }
 
         [HttpGet]
-        [Route("{page}/{size}")]
-        public HttpResponseMessage GetUsers(HttpRequestMessage request, int page, int size)
-        {
-            return CreateHttpResponse(request, () =>
-            {
-                int total = 0;
-                var result = _userRepository.GetListPaging(out total, page, size, "").ToViewModel();
-                foreach (var i in result)
-                {
-                    i.Roles = string.Join(", ", _roleRepository.GetByUser(i.Id).Select(r => r.Name));
-                }
-                return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result, total));
-            });
-        }
-
-        [HttpGet]
-        [Route("{page}/{size}/{searchKey}")]
-        public HttpResponseMessage GetUsers(HttpRequestMessage request, int page, int size, string searchKey)
+        [Route("{page}/{size}/{searchKey?}")]
+        public HttpResponseMessage GetUsers(HttpRequestMessage request, int page, int size, string searchKey = "")
         {
             return CreateHttpResponse(request, () =>
             {

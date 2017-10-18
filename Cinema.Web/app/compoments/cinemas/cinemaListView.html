@@ -17,6 +17,11 @@
                         </span>
                     </div>
                 </div>
+                <div class="col-lg-3 in-gp-tb">
+                    <div class="input-group">
+                        <button ui-sref="cinemas/add" class="btn btn-success" type="button">Add new</button>
+                    </div>
+                </div>
             </div>
 
             <table class="table" ui-jq="footable" ui-options='{
@@ -32,6 +37,7 @@
                 <thead>
                     <tr>
                         <th data-breakpoints="xs">Cinema Name</th>
+                        <th data-breakpoints="xs">Cinema Chain</th>
                         <th>Address</th>
                         <th>Phone Number</th>
                         <th data-breakpoints="xs">Location</th>
@@ -41,14 +47,15 @@
                 <tbody>
                     <tr ng-repeat="cinema in listCinema" data-expanded="true">
                         <td>{{cinema.name}}</td>
+                        <td>{{cinema.cinemaChainName}}</td>
                         <td>{{cinema.address}}</td>
                         <td>{{cinema.phoneNumber}}</td>
                         <td>
-                            {{cinema.Location}}
+                            {{cinema.locationName}}
                         </td>
                         <td class="text-center">
                             <button class="btn btn-default" ui-sref="product_edit({category: 'Non', id: product.Id})"><i class="fa fa-pencil text-primary text-active"></i></button>
-                            <button class="btn btn-default" ng-click="deleteConfirm(product.Id)" style="margin-left: 10px"><i class="fa fa-trash text-danger text"></i></button>
+                            <button class="btn btn-default" ng-click="deleteConfirm(cinema.id)" style="margin-left: 10px"><i class="fa fa-trash text-danger text"></i></button>
                         </td>
                     </tr>
                 </tbody>
@@ -57,7 +64,7 @@
         <footer class="panel-footer">
             <div class="row">
                 <div class="col-sm-5 text-center">
-                    <small class="text-muted inline m-t-sm m-b-sm">showing {{pageSize*page}}-{{pageSize*page + listProduct.length}} of {{totalCount}} items</small>
+                    <small class="text-muted inline m-t-sm m-b-sm">showing {{pageSize*page}}-{{pageSize*page + listCinema.length}} of {{totalCount}} items</small>
                 </div>
                 <div class="col-sm-7 text-right text-center-xs">
                     <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getListCinema(page)"></pager-directive>

@@ -27,6 +27,5 @@ namespace Cinema.Web.Models
             this.total = total;
             this.elements = elements;
         }
-
     }
 }

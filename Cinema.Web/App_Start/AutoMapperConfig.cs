@@ -17,10 +17,15 @@ namespace Cinema.Web
                 //EntityModel to ViewModel
                 config.CreateMap<IdentityRole, RoleViewModel>();
                 config.CreateMap<ApplicationUser, UserViewModel>();
+                config.CreateMap<Model.Models.Cinema, CinemaViewModel>().AfterMap((e,v) => {
+                    v.CinemaChainName = e.CinemaChain.Name;
+                    v.LocationName = e.Location.Name;
+                });
 
                 //ViewModel to EntityModel
                 config.CreateMap<RoleViewModel, IdentityRole>();
                 config.CreateMap<UserViewModel, ApplicationUser>();
+                config.CreateMap<CinemaViewModel, Model.Models.Cinema>();
             });
         }
     }

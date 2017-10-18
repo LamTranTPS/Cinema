@@ -3,7 +3,7 @@ using Cinema.Model.Models;
 
 namespace Cinema.Data.Repositories
 {
-    public interface ILocationRepository
+    public interface ILocationRepository: IRepository<Location>
     {
     }
 
