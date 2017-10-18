@@ -1,0 +1,29 @@
+{
+  "name": "angular-loaders",
+  "version": "1.0.0",
+  "description": "Set of directives to implement the awesome library Loaders.css",
+  "main": "dist/angular-loaders.js",
+  "scripts": {
+    "build": "ng-annotate -a ./src/angular-loaders.js > ./dist/angular-loaders.js && uglifyjs ./dist/angular-loaders.js -o ./dist/angular-loaders.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexjoffroy/angular-loaders.git"
+  },
+  "keywords": [
+    "angular",
+    "css",
+    "loader",
+    "animation"
+  ],
+  "author": "The Cormoran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexjoffroy/angular-loaders/issues"
+  },
+  "homepage": "https://github.com/alexjoffroy/angular-loaders",
+  "devDependencies": {
+    "ng-annotate": "^1.2.1",
+    "uglifyjs": "^2.4.10"
+  }
+}

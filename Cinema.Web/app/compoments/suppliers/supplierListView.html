@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html ng-app="productapp">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+</head>
+<body ng-controller="supplierListController">
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            List Supplier
+        </div>
+        <div>
+            <table class="table" ui-jq="footable" ui-options='{
+        "paging": {
+          "enabled": true
+        },
+        "filtering": {
+          "enabled": true
+        },
+        "sorting": {
+          "enabled": true
+        }}'>
+                <thead>
+                    <tr>
+                        <th data-breakpoints="xs">ID</th>
+                        <th>Company Name</th>
+                        <th>Contact Name</th>
+                        <th data-breakpoints="xs">City</th>
+                        <th data-breakpoints="xs sm md" data-title="DOB">Country</th>
+                        <th data-breakpoints="xs sm md" data-title="DOB">Phone</th>
+                        <th data-breakpoints="xs sm md" data-title="DOB">Fax</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="product in listSupplier" data-expanded="true">
+                        <td>{{product.Id}}</td>
+                        <td>{{product.CompanyName}}</td>
+                        <td>{{product.ContactName}}</td>
+                        <td>{{product.City}}</td>
+                        <td>{{product.Country}}</td>
+                        <td>{{product.Phone}}</td>
+                        <td>{{product.Fax}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="col-sm-7 text-right text-center-xs">
+                <div class="pagination pagination-sm m-t-none m-b-none">
+                    <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getListSupplier(page)"></pager-directive>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+﻿
+<section ng-controller="phoneListController">
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            List Phone
+        </div>
+        <div>
+
+            <div class="row panel-body">
+                <div class="col-lg-4 in-gp-tb">
+                    <div class="input-group">
+                        <input ng-model="searchKey" type="text" class="form-control" placeholder="Search for Name or Supplier">
+                        <span class="input-group-btn">
+                            <button ng-click="search()" class="btn btn-info" type="button">Search</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-3 in-gp-tb">
+                    <div class="input-group">
+                        <button ui-sref="product_add({category: 'Phone'})" class="btn btn-success" type="button">Add new</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <table class="table" ui-jq="footable" ui-options='{
+        "paging": {
+          "enabled": true
+        },
+        "filtering": {
+          "enabled": true
+        },
+        "sorting": {
+          "enabled": true
+        }}'>
+                <thead>
+                    <tr>
+                        <th data-breakpoints="xs">ID</th>
+                        <th>Product Name</th>
+                        <th>Supplier Name</th>
+                        <th data-breakpoints="xs">Unit Price</th>
+                        <th data-breakpoints="xs sm md" data-title="DOB">Package</th>
+                        <th data-breakpoints="xs sm md" data-title="DOB" class="text-center">Discontinued</th>
+                        <th data-breakpoints="xs sm md" data-title="DOB" class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="product in listProduct" data-expanded="true">
+                        <td>{{product.Id}}</td>
+                        <td>{{product.ProductName}}</td>
+                        <td>{{product.SupplierName}}</td>
+                        <td>{{product.UnitPrice}}</td>
+                        <td>{{product.Package}}</td>
+                        <td class="text-center">
+                            <i ng-class="{'fa fa-circle text-success text-active': product.IsDiscontinued, 'fa fa-circle text-danger text': !product.IsDiscontinued}"></i>
+                        </td>
+                        <td class="text-center">
+                            <button class="btn btn-default" ui-sref="product_edit({category: 'Phone', id: product.Id})"><i class="fa fa-pencil text-primary text-active"></i></button>
+                            <button class="btn btn-default" ng-click="deleteConfirm(product.Id)" style="margin-left: 10px"><i class="fa fa-times text-danger text"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-sm-5 text-center">
+                    <small class="text-muted inline m-t-sm m-b-sm">showing {{pageSize*page}}-{{pageSize*page + listProduct.length}} of {{totalCount}} items</small>
+                </div>
+                <div class="col-sm-7 text-right text-center-xs">
+                    <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getListProduct(page)"></pager-directive>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</section>

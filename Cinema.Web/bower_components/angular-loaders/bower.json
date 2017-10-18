@@ -1,0 +1,25 @@
+{
+  "name": "angular-loaders",
+  "version": "1.0.0",
+  "authors": [
+    "Cormoran <alexjoffroy@github.com>"
+  ],
+  "description": "Set of directives to implement the awesome library Loaders.css",
+  "main": "./dist/angular-loaders.js",
+  "keywords": [
+    "angular",
+    "directive",
+    "loader",
+    "animations",
+    "css"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/alexjoffroy/angular-loaders",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

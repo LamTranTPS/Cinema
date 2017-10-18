@@ -1,0 +1,69 @@
+﻿
+<section ng-controller="userListController">
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            List User
+        </div>        
+        <div>
+
+            <div class="row panel-body">
+                <div class="col-lg-4 in-gp-tb">
+                    <div class="input-group">
+                        <input ng-model="searchKey" type="text" class="form-control" placeholder="Search for Name or Supplier">
+                        <span class="input-group-btn">
+                            <button ng-click="search()" class="btn btn-info" type="button">Search</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table" ui-jq="footable" ui-options='{
+        "paging": {
+          "enabled": true
+        },
+        "filtering": {
+          "enabled": true
+        },
+        "sorting": {
+          "enabled": true
+        }}'>
+                <thead>
+                    <tr>
+                        <th data-breakpoints="xs">User Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th data-breakpoints="xs">Roles</th>
+                        <th data-breakpoints="xs sm md" data-title="DOB" class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="user in listUser" data-expanded="true">
+                        <td>{{user.userName}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.phoneNumber}}</td>
+                        <td>
+                            {{user.roles}}
+                            <button class="btn btn-default right pull-right" ui-sref="product_edit({category: 'Non', id: product.Id})"><i class="fa fa-pencil text-primary text-active"></i></button>
+                        </td>
+                        <td class="text-center">
+                            <button class="btn btn-default" ng-click="deleteConfirm(product.Id)" style="margin-left: 10px"><i class="fa fa-trash text-danger text"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-sm-5 text-center">
+                    <small class="text-muted inline m-t-sm m-b-sm">showing {{pageSize*page}}-{{pageSize*page + listProduct.length}} of {{totalCount}} items</small>
+                </div>
+                <div class="col-sm-7 text-right text-center-xs">
+                    <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getListUser(page)"></pager-directive>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</section>
