@@ -3,7 +3,7 @@ using Cinema.Model.Models;
 
 namespace Cinema.Data.Repositories
 {
-    public interface ICinemaRepository
+    public interface ICinemaRepository: IRepository<Model.Models.Cinema>
     {
     }
 

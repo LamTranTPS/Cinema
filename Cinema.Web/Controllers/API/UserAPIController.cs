@@ -1,4 +1,5 @@
 ﻿using Cinema.Data.Repositories;
+using Cinema.Model.Models;
 using Cinema.Web.ActionFilters;
 using Cinema.Web.Models;
 using Cinema.Web.Models.Extensions;
@@ -10,7 +11,7 @@ using System.Web.Http;
 namespace Cinema.Web.Controllers
 {
     [AdminLog]
-    [Authorize(Roles = "admin")]
+    [Authorize(Roles = "Super Admin")]
     [RoutePrefix("api/users")]
     public class UserAPIController : BaseApiController
     {
@@ -86,6 +87,14 @@ namespace Cinema.Web.Controllers
                 }
                 return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result, total));
             });
+        }
+
+        [HttpGet]
+        [Route("delete/{id}")]
+        public HttpResponseMessage Delete(HttpRequestMessage request, string id)
+        {
+            var result = _userRepository.Delete(id);
+            return request.CreateResponse(HttpStatusCode.OK, new ApiResult(result, result));
         }
     }
 }

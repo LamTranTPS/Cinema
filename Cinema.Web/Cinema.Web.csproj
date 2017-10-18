@@ -263,6 +263,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\API\CinemaAPIController.cs" />
     <Compile Include="Controllers\API\CinemaChainAPIController.cs" />
     <Compile Include="Controllers\API\RoleAPIController.cs" />
     <Compile Include="Controllers\API\UserAPIController.cs" />
@@ -291,6 +292,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\compoments\cinemas\cinemaListController.js" />
+    <Content Include="app\compoments\cinemas\cinemaListView.html" />
+    <Content Include="app\compoments\cinemas\cinemas.module.js" />
     <Content Include="app\compoments\homeController.js" />
     <Content Include="app\compoments\login\loginController.js" />
     <Content Include="app\compoments\login\loginView.html" />
