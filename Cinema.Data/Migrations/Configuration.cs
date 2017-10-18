@@ -1,5 +1,7 @@
 namespace Cinema.Data.Migrations
 {
+    using Cinema.Data.Infrastructure;
+    using Cinema.Data.Repositories;
     using Cinema.Model.Models;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -22,11 +24,17 @@ namespace Cinema.Data.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
 
-            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new CinemaDbContext()));
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new CinemaDbContext()));
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
 
+            if (!roleManager.Roles.Any())
+            {
+                roleManager.Create(new IdentityRole { Name = "Admin" });
+                roleManager.Create(new IdentityRole { Name = "Super Admin" });
+                roleManager.Create(new IdentityRole { Name = "User" });
+            }
 
             for (int i = 0; i < 10; i++)
             {
@@ -46,17 +54,14 @@ namespace Cinema.Data.Migrations
                     EmailConfirmed = true,
                 }, "cinema");
 
+                //context.CinemaChains.Add(new CinemaChain() {ID = i.ToString(), Name = "Cinema Chain " + i });
+                //context.Locations.Add(new Location() { ID = i.ToString(), Name = "Location " + i });
+                //context.Cinemas.Add(new Cinema() { ID = i.ToString(), Name = "Cinema " + i, CinemaChainID = i.ToString(), LocationID = i.ToString()});
+                //context.SaveChanges();
 
                 var admin = manager.FindByEmail("admin." + i + "@cinema.com");
 
                 manager.AddToRoles(admin.Id, new string[] { "Admin", "User" });
-            }
-
-            if (!roleManager.Roles.Any())
-            {
-                roleManager.Create(new IdentityRole { Name = "Admin" });
-                roleManager.Create(new IdentityRole { Name = "Super Admin" });
-                roleManager.Create(new IdentityRole { Name = "User" });
             }
 
             var adminUser = manager.FindByEmail("admin.0@cinema.com");
