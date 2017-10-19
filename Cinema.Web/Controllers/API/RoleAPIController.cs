@@ -11,7 +11,7 @@ using System.Web.Http;
 namespace Cinema.Web.Controllers.API
 {
     [AdminLog]
-    [Authorize(Roles = "admin")]
+    [Authorize(Roles = "Admin")]
     [RoutePrefix("api/roles")]
     public class RoleAPIController : BaseApiController
     {

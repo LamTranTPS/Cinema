@@ -6,6 +6,7 @@ namespace Cinema.Data.Migrations
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -28,6 +29,10 @@ namespace Cinema.Data.Migrations
 
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
+            var listCinemaChain = new List<CinemaChain>();
+            var listLocation = new List<Location>();
+            var listCinema = new List<Cinema>();
+
 
             if (!roleManager.Roles.Any())
             {
@@ -40,9 +45,9 @@ namespace Cinema.Data.Migrations
             {
                 manager.Create(new ApplicationUser()
                 {
-                    UserName = "Admin." + i,
+                    UserName = "admin." + i + "@cinema.com",
                     Email = "admin." + i + "@cinema.com",
-                    Hometown = "admin." + i + "@cinema.com",
+                    Hometown = "Admin." + i,
                     EmailConfirmed = true,
                 }, "cinema");
 
@@ -54,19 +59,24 @@ namespace Cinema.Data.Migrations
                     EmailConfirmed = true,
                 }, "cinema");
 
-                //context.CinemaChains.Add(new CinemaChain() {ID = i.ToString(), Name = "Cinema Chain " + i });
-                //context.Locations.Add(new Location() { ID = i.ToString(), Name = "Location " + i });
-                //context.Cinemas.Add(new Cinema() { ID = i.ToString(), Name = "Cinema " + i, CinemaChainID = i.ToString(), LocationID = i.ToString()});
-                //context.SaveChanges();
+                listCinemaChain.Add(new CinemaChain() {ID = i.ToString(), Name = "Cinema Chain " + i });
+                listLocation.Add(new Location() { ID = i.ToString(), Name = "Location " + i });
+                listCinema.Add(new Cinema() { ID = i.ToString(), Name = "Cinema " + i, CinemaChainID = i.ToString(), LocationID = i.ToString()});
 
                 var admin = manager.FindByEmail("admin." + i + "@cinema.com");
 
                 manager.AddToRoles(admin.Id, new string[] { "Admin", "User" });
             }
 
+            context.CinemaChains.AddRange(listCinemaChain);
+            context.Locations.AddRange(listLocation);
+            context.Cinemas.AddRange(listCinema);
+
             var adminUser = manager.FindByEmail("admin.0@cinema.com");
 
             manager.AddToRoles(adminUser.Id, new string[] { "Super Admin", "Admin", "User" });
+
+            base.Seed(context);
         }
     }
 }

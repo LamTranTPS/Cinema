@@ -15,7 +15,7 @@ using System.Web.Http;
 namespace Cinema.Web.Controllers.API
 {
     [AdminLog]
-    [Authorize(Roles="admin")]
+    [Authorize(Roles="Admin")]
     [RoutePrefix("api/locations")]
     public class LocationAPIController : BaseApiController
     {
