@@ -128,6 +128,9 @@
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Quartz, Version=3.0.0.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quartz.3.0.0-beta1\lib\net452\Quartz.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -142,6 +145,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -230,6 +234,7 @@
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\QuartzConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -285,7 +290,9 @@
     <Compile Include="Models\Extensions\RoleExtension.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MeViewModels.cs" />
+    <Compile Include="Models\QuartzJob\SimpleJob.cs" />
     <Compile Include="Models\ViewModels\CinemaViewModel.cs" />
+    <Compile Include="Models\ViewModels\LocationViewModel.cs" />
     <Compile Include="Models\ViewModels\UserViewModel.cs" />
     <Compile Include="Models\ViewModels\RoleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -317,6 +324,10 @@
     <Content Include="app\shared\services\loginService.js" />
     <Content Include="app\shared\services\notifyService.js" />
     <Content Include="app\shared\views\baseView.html" />
+    <Content Include="App_Data\CinemaDB.mdf" />
+    <Content Include="App_Data\CinemaDB_log.ldf">
+      <DependentUpon>CinemaDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="bower_components\angular-loaders\demo\demo.css" />
@@ -836,7 +847,6 @@
   <ItemGroup>
     <Folder Include="app\shared\footer\" />
     <Folder Include="app\shared\navigation\" />
-    <Folder Include="App_Data\" />
     <Folder Include="resources\client\" />
   </ItemGroup>
   <ItemGroup>
@@ -856,6 +866,10 @@
     <ProjectReference Include="..\Cinema.Common\Cinema.Common.csproj">
       <Project>{b242f14d-f5b4-4bba-a8de-a66ff870ce2f}</Project>
       <Name>Cinema.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cinema.Crawler\Cinema.Crawler.csproj">
+      <Project>{d9af20a9-a7fe-4138-ac7c-023a2a00a4a0}</Project>
+      <Name>Cinema.Crawler</Name>
     </ProjectReference>
     <ProjectReference Include="..\Cinema.Data\Cinema.Data.csproj">
       <Project>{56b827f7-0a6a-449c-bb45-b23bbf61cc78}</Project>

@@ -1,0 +1,12 @@
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Crawler.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Crawler.pdb
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Fizzler.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Fizzler.Systems.HtmlAgilityPack.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\HtmlAgilityPack.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Fizzler.xml
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Fizzler.Systems.HtmlAgilityPack.xml
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\HtmlAgilityPack.xml
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\obj\Debug\Cinema.Crawler.csprojResolveAssemblyReference.cache
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\obj\Debug\Cinema.Crawler.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\obj\Debug\Cinema.Crawler.pdb

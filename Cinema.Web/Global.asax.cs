@@ -20,6 +20,8 @@ namespace Cinema.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoMapperConfig.Register();
 
+            QuartzConfig.RegisterAsync().Wait();
+
             //GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings
             //    .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             //GlobalConfiguration.Configuration.Formatters

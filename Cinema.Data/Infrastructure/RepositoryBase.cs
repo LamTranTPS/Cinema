@@ -53,6 +53,10 @@ namespace Cinema.Data.Infrastructure
         {
             return dbSet.Find(id) != null;
         }
+        public virtual bool Contains(string id)
+        {
+            return dbSet.Find(id) != null;
+        }
 
         public virtual int Count(Expression<Func<T, bool>> expression = null)
         {

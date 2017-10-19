@@ -34,5 +34,7 @@ namespace Cinema.Data.Infrastructure
         bool Contains(Expression<Func<T, bool>> expression);
 
         bool Contains(int id);
+
+        bool Contains(string id);
     }
 }
