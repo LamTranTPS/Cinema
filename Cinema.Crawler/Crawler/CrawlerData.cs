@@ -1,32 +1,46 @@
 ﻿using Cinema.Data.Infrastructure;
 using Cinema.Data.Repositories;
+using Cinema.Model.Models;
 using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web;
 
-namespace Cinema.Web.Crawler
+namespace Cinema.Crawler.Crawler
 {
     public class CrawlerData
     {
-        private IDbFactory _dbFactory;
-        private HtmlWeb _htmlWeb;
-        private ILocationRepository _locationRepository;
-
         public LocationCrawler Locations;
+        public CinemaChainCrawler CinemaChains;
+        public CinemaCrawler Cinemas;
         public CrawlerData()
         {
-            _htmlWeb = new HtmlWeb()
-            {
-                AutoDetectEncoding = false,
-                OverrideEncoding = Encoding.UTF8
-            };
-            _dbFactory = new DbFactory();
-            _locationRepository = new LocationRepository(_dbFactory);
+            Locations = new LocationCrawler();
+            CinemaChains = new CinemaChainCrawler();
+            Cinemas = new CinemaCrawler();
+        }
 
-            Locations = new LocationCrawler(_htmlWeb, _locationRepository);
+        public async Task CrawlerAsync()
+        {
+            var watch = Stopwatch.StartNew();
+            await CrawlerLocationAndChain();
+            Debug.WriteLine("Update Location and chain done: " + watch.ElapsedMilliseconds);
+            await Cinemas.Crawler();
+            watch.Stop();
+            Debug.WriteLine("Update data done: " + watch.ElapsedMilliseconds);
+        }
+
+        public async Task CrawlerLocationAndChain()
+        {
+            var locationTask = new Task<List<Location>>(() => Locations.Crawler());
+            var cinemaChainTask = new Task<List<CinemaChain>>(() => CinemaChains.Crawler());
+            locationTask.Start();
+            cinemaChainTask.Start();
+            await Task.WhenAll(locationTask, cinemaChainTask);
         }
     }
 }

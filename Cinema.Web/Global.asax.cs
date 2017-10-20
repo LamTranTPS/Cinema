@@ -1,9 +1,11 @@
 ﻿using Cinema.Web.ActionFilters;
+using Cinema.Crawler.Crawler;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Threading;
 
 namespace Cinema.Web
 {
@@ -22,10 +24,16 @@ namespace Cinema.Web
 
             QuartzConfig.RegisterAsync().Wait();
 
+            new Thread(Crawler).Start();
             //GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings
             //    .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             //GlobalConfiguration.Configuration.Formatters
             //    .Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
+        }
+
+        public async void Crawler()
+        {
+            await new CrawlerData().CrawlerAsync();
         }
     }
 }

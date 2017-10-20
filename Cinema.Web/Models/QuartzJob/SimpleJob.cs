@@ -1,13 +1,9 @@
-﻿using Quartz;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Threading.Tasks;
+﻿using Cinema.Data.Infrastructure;
 using Cinema.Data.Repositories;
 using Cinema.Model.Models;
-using Cinema.Data.Infrastructure;
-using Cinema.Web.Crawler;
+using Quartz;
+using System;
+using System.Threading.Tasks;
 
 namespace Cinema.Web.Models.QuartzJob
 {
@@ -26,14 +22,13 @@ namespace Cinema.Web.Models.QuartzJob
     public class RepeatJob : IJob
     {
         private static ErrorRepository _errorRepository = new ErrorRepository(new DbFactory());
-        private static CrawlerData _crawlerData = new CrawlerData();
 
         //public SimpleJob(ErrorRepository errorRepository)
         //{
         //    _errorRepository = errorRepository;
         //}
 
-        public async Task Execute(IJobExecutionContext context)
+        public Task Execute(IJobExecutionContext context)
         {
             var error = new Error()
             {
@@ -41,8 +36,7 @@ namespace Cinema.Web.Models.QuartzJob
                 Message = "Quartz Repeat Job",
             };
             _errorRepository.Add(error);
-
-            await _crawlerData.Locations.Crawler();
+            return Task.FromResult<object>(null);
         }
     }
 

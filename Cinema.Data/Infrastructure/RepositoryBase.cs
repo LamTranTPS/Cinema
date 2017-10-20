@@ -11,7 +11,7 @@ namespace Cinema.Data.Infrastructure
     {
         private readonly IDbSet<T> dbSet;
 
-        protected IDbFactory DbFactory
+        public IDbFactory DbFactory
         {
             private set;
             get;
@@ -103,11 +103,11 @@ namespace Cinema.Data.Infrastructure
         {
             if (includes != null && includes.Count() > 0)
             {
-                return QueryIncludes(includes).First(expression);
+                return expression == null ? QueryIncludes(includes).FirstOrDefault() : QueryIncludes(includes).FirstOrDefault(expression);
             }
             else
             {
-                return dbSet.First(expression);
+                return expression == null ? dbSet.FirstOrDefault() : dbSet.FirstOrDefault(expression);
             }
         }
 

@@ -1,4 +1,5 @@
 ﻿using Cinema.Data;
+using Cinema.Data.Infrastructure;
 using Cinema.Data.Repositories;
 using Cinema.Model.Models;
 using Fizzler.Systems.HtmlAgilityPack;
@@ -10,38 +11,43 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace Cinema.Web.Crawler
+namespace Cinema.Crawler.Crawler
 {
-    public class LocationCrawler
+    public class LocationCrawler: BaseCrawler<Location>
     {
-        private HtmlWeb _htmlWeb;
-        private ILocationRepository _locationRepository;
-        private string cinemaUrl = "http://lichchieu.net/rap";
+        private const string locationUrl = "http://lichchieu.net/rap";
 
-        public LocationCrawler(HtmlWeb htmlWeb, ILocationRepository locationRepository)
+        private LocationRepository LocationRepository { get { return (LocationRepository)_repository; } }
+
+        public LocationCrawler()
+            :base()
         {
-            _htmlWeb = htmlWeb;
-            _locationRepository = locationRepository;
+            _repository = new LocationRepository(new DbFactory());
         }
 
-        public Task<List<Location>> Crawler()
+        public List<Location> Crawler()
         {
-            HtmlDocument document = _htmlWeb.Load(cinemaUrl);
+            HtmlDocument document = _htmlWeb.Load(locationUrl);
             var listLocation = new List<Location>();
             Location locationCrawler;
-            var listLocationHtml = document.DocumentNode.QuerySelectorAll("select.form-control#cinema-by-city>option");
-            foreach(var locationHtml in listLocationHtml)
+            var listLocationHtml = document.DocumentNode.QuerySelector("select#cinema-by-city");
+            for(int i = 0; i < listLocationHtml.ChildNodes.Count; i ++)
             {
-                var id = locationHtml.Attributes["value"].Value.Trim();
-                if (!string.IsNullOrEmpty(id) && !_locationRepository.Contains(id))
+                if (listLocationHtml.ChildNodes[i].Name == "option" && listLocationHtml.ChildNodes[i].Attributes.Contains("value"))
                 {
-                    locationCrawler = new Location();
-                    locationCrawler.ID = id;
-                    locationCrawler.Name = locationHtml.InnerText.Trim();
-                    listLocation.Add(locationCrawler);
+                    var id = (listLocationHtml.ChildNodes[i].Attributes["value"].Value ?? "").Trim();
+                    if (!string.IsNullOrEmpty(id) && !LocationRepository.Contains(id))
+                    {
+                        i++;
+                        locationCrawler = new Location();
+                        locationCrawler.ID = id;
+                        locationCrawler.Name = listLocationHtml.ChildNodes[i].InnerText.Trim();
+                        listLocation.Add(locationCrawler);
+                    }
                 }
             }
-            return Task.FromResult<List<Location>>(listLocation);
+            LocationRepository.AddRange(listLocation);
+            return listLocation;
         }
     }
 }

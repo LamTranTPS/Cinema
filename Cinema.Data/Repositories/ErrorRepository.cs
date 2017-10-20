@@ -11,6 +11,7 @@ namespace Cinema.Data.Repositories
     {
         public ErrorRepository(IDbFactory dbFactory) : base(dbFactory)
         {
+
         }
     }
 }

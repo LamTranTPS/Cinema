@@ -290,6 +290,7 @@
     <Compile Include="Models\Extensions\RoleExtension.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MeViewModels.cs" />
+    <Compile Include="Models\QuartzJob\CrawlerJob.cs" />
     <Compile Include="Models\QuartzJob\SimpleJob.cs" />
     <Compile Include="Models\ViewModels\CinemaViewModel.cs" />
     <Compile Include="Models\ViewModels\LocationViewModel.cs" />
@@ -868,7 +869,7 @@
       <Name>Cinema.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Cinema.Crawler\Cinema.Crawler.csproj">
-      <Project>{d9af20a9-a7fe-4138-ac7c-023a2a00a4a0}</Project>
+      <Project>{53d0df3d-473e-499f-9138-72016235ed2f}</Project>
       <Name>Cinema.Crawler</Name>
     </ProjectReference>
     <ProjectReference Include="..\Cinema.Data\Cinema.Data.csproj">
@@ -891,6 +892,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

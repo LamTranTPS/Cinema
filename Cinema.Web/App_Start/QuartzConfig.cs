@@ -2,7 +2,6 @@
 using Quartz;
 using Quartz.Impl;
 using System;
-using System.Collections.Specialized;
 using System.Threading.Tasks;
 
 namespace Cinema.Web
@@ -19,11 +18,11 @@ namespace Cinema.Web
             {
                 StdSchedulerFactory factory = new StdSchedulerFactory();
                 _scheduler = await factory.GetScheduler();
-                
+
                 await _scheduler.Start();
                 await CreateRepeatJob();
                 await CreateScheduleJob();
-
+                await CreateCrawlerDataJob();
             }
             catch (SchedulerException se)
             {
@@ -42,7 +41,7 @@ namespace Cinema.Web
                     .RepeatForever())
                 .Build();
 
-            await _scheduler.ScheduleJob(job, trigger);
+            await Scheduler.ScheduleJob(job, trigger);
         }
 
         public static async Task CreateScheduleJob()
@@ -52,8 +51,17 @@ namespace Cinema.Web
             ITrigger trigger = TriggerBuilder.Create()
                  .WithCronSchedule("30 * * * * ?")
                 .Build();
-            await _scheduler.ScheduleJob(job, trigger);
+            await Scheduler.ScheduleJob(job, trigger);
         }
+        
+        public static async Task CreateCrawlerDataJob()
+        {
+            IJobDetail job = JobBuilder.Create<CrawlerJob>().Build();
 
+            ITrigger trigger = TriggerBuilder.Create()
+                 .WithCronSchedule("00 00 03/15 * * ?")
+                .Build();
+            await Scheduler.ScheduleJob(job, trigger);
+        }
     }
 }

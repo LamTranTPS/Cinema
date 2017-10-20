@@ -59,9 +59,9 @@ namespace Cinema.Data.Migrations
                     EmailConfirmed = true,
                 }, "cinema");
 
-                listCinemaChain.Add(new CinemaChain() {ID = i.ToString(), Name = "Cinema Chain " + i });
+                listCinemaChain.Add(new CinemaChain() { ID = i.ToString(), Name = "Cinema Chain " + i });
                 listLocation.Add(new Location() { ID = i.ToString(), Name = "Location " + i });
-                listCinema.Add(new Cinema() { ID = i.ToString(), Name = "Cinema " + i, CinemaChainID = i.ToString(), LocationID = i.ToString()});
+                listCinema.Add(new Cinema() { ID = i.ToString(), Name = "Cinema " + i, CinemaChainID = i.ToString(), LocationID = i.ToString() });
 
                 var admin = manager.FindByEmail("admin." + i + "@cinema.com");
 

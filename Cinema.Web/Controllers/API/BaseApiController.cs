@@ -106,27 +106,28 @@ namespace Cinema.Web.Controllers
                         Trace.WriteLine($"- Property: \"{ve.PropertyName}\", Error: \"{ve.ErrorMessage}\"");
                     }
                 }
-                LogError(ex);
+                LogError(ex, requestMessage);
                 response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, new ApiResult(false, ex.Message));
             }
             catch (DbUpdateException dbEx)
             {
-                LogError(dbEx);
+                LogError(dbEx, requestMessage);
                 response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, new ApiResult(false, dbEx.Message));
             }
             catch (Exception ex)
             {
-                LogError(ex);
+                LogError(ex, requestMessage);
                 response = requestMessage.CreateResponse(HttpStatusCode.BadRequest, new ApiResult(false, ex.Message));
             }
             return response;
         }
 
-        private void LogError(Exception ex)
+        private void LogError(Exception ex, HttpRequestMessage requestMessage)
         {
             try
             {
                 Error error = new Error();
+                error.Action = "API Request: " + requestMessage.Method +  requestMessage.RequestUri.LocalPath;
                 error.CreatedDate = DateTime.Now;
                 error.Message = ex.Message;
                 error.StackTrace = ex.StackTrace;

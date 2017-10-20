@@ -569,3 +569,14 @@ C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Web\bin\Microsoft.A
 C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Web\obj\Debug\Cinema.Web.csprojResolveAssemblyReference.cache
 C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Web\obj\Debug\Cinema.Web.dll
 C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Web\obj\Debug\Cinema.Web.pdb
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Web\bin\roslyn\desktop.ini
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Web\bin\Cinema.Crawler.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Web\bin\HtmlAgilityPack.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Web\bin\Fizzler.Systems.HtmlAgilityPack.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Web\bin\Fizzler.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Web\bin\Cinema.Crawler.pdb
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Web\bin\Cinema.Crawler.dll.config
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Web\bin\HtmlAgilityPack.pdb
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Web\bin\HtmlAgilityPack.xml
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Web\bin\Fizzler.Systems.HtmlAgilityPack.xml
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Web\bin\Fizzler.xml

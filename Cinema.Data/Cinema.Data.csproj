@@ -77,6 +77,10 @@
     <Compile Include="Migrations\201710130439149_updateerrortable.Designer.cs">
       <DependentUpon>201710130439149_updateerrortable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710200337574_updateErorTable.cs" />
+    <Compile Include="Migrations\201710200337574_updateErorTable.Designer.cs">
+      <DependentUpon>201710200337574_updateErorTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
@@ -114,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710130439149_updateerrortable.resx">
       <DependentUpon>201710130439149_updateerrortable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710200337574_updateErorTable.resx">
+      <DependentUpon>201710200337574_updateErorTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

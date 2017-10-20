@@ -71,3 +71,4 @@ C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Data\obj\Debug\Cine
 C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Data\obj\Debug\Cinema.Data.csproj.GenerateResource.Cache
 C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Data\obj\Debug\Cinema.Data.dll
 C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Data\obj\Debug\Cinema.Data.pdb
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Data\obj\Debug\Cinema.Data.Migrations.updateErorTable.resources
