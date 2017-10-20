@@ -25,7 +25,12 @@ namespace Cinema.Crawler.Crawler
             _repository = new LocationRepository(new DbFactory());
         }
 
-        public List<Location> Crawler()
+        public new List<Location> CrawlerData()
+        {
+            return LoadLocations();
+        }
+
+        public List<Location> LoadLocations()
         {
             HtmlDocument document = _htmlWeb.Load(locationUrl);
             var listLocation = new List<Location>();

@@ -24,7 +24,12 @@ namespace Cinema.Crawler.Crawler
             _repository = new CinemaChainRepository(new DbFactory());
         }
 
-        public List<CinemaChain> Crawler()
+        public new List<CinemaChain> CrawlerData()
+        {
+            return LoadCinemaChains();
+        }
+
+        public List<CinemaChain> LoadCinemaChains()
         {
             HtmlDocument document = _htmlWeb.Load(cinemaChainUrl);
             var listCinemaChain = new List<CinemaChain>();

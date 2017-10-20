@@ -30,11 +30,16 @@ namespace Cinema.Crawler.Crawler
             
         }
 
-        protected object TryCrawler(Func<object> function)
+        public List<T> CrawlerData()
+        {
+            return null;
+        }
+
+        protected List<T> TryCrawler()
         {
             try
             {
-                return function.Invoke();
+                return CrawlerData();
             }
             catch (DbEntityValidationException ex)
             {

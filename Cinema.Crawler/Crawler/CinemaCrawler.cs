@@ -27,7 +27,12 @@ namespace Cinema.Crawler.Crawler
             _cinemaChainRepository = new CinemaChainRepository(new DbFactory());
         }
 
-        public async Task<List<Model.Models.Cinema>> Crawler()
+        public new List<Model.Models.Cinema> CrawlerData()
+        {
+            return LoadCinemas().Result;
+        }
+
+        private async Task<List<Model.Models.Cinema>> LoadCinemas()
         {
             HtmlDocument document = _htmlWeb.Load(cinemaUrl);
             var listCinemaHtml = document.DocumentNode.QuerySelectorAll("a.list-group-item");
@@ -50,7 +55,7 @@ namespace Cinema.Crawler.Crawler
                     {
                         cinemaCrawler.CinemaChainID = "khac";
                     }
-                    var loadCinemaTask = new Task<Model.Models.Cinema>(() =>loadCinema(ref cinemaCrawler, cinemaHtml.Attributes["href"].Value));
+                    var loadCinemaTask = new Task<Model.Models.Cinema>(() =>LoadCinema(ref cinemaCrawler, cinemaHtml.Attributes["href"].Value));
                     loadCinemaTask.Start();
                     listTaskCinema.Add(loadCinemaTask);
                 }
@@ -61,11 +66,10 @@ namespace Cinema.Crawler.Crawler
             {
                 listCinema.Add(task.Result);
             }
-            //CinemaRepository.AddRange(listCinema);
             return listCinema;
         }
 
-        private Model.Models.Cinema loadCinema(ref Model.Models.Cinema cinema, string url)
+        private Model.Models.Cinema LoadCinema(ref Model.Models.Cinema cinema, string url)
         {
             HtmlDocument document = _htmlWeb.Load(cinemaUrl.Replace("/rap", url));
             var addressAndPhone = document.DocumentNode.QuerySelectorAll("dl.dl-horizontal > dd").ToList();

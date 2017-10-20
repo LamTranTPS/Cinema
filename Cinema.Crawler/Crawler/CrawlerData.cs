@@ -29,15 +29,15 @@ namespace Cinema.Crawler.Crawler
             var watch = Stopwatch.StartNew();
             await CrawlerLocationAndChain();
             Debug.WriteLine("Update Location and chain done: " + watch.ElapsedMilliseconds);
-            await Cinemas.Crawler();
+            Cinemas.CrawlerData();
             watch.Stop();
             Debug.WriteLine("Update data done: " + watch.ElapsedMilliseconds);
         }
 
         public async Task CrawlerLocationAndChain()
         {
-            var locationTask = new Task<List<Location>>(() => Locations.Crawler());
-            var cinemaChainTask = new Task<List<CinemaChain>>(() => CinemaChains.Crawler());
+            var locationTask = new Task<List<Location>>(() => Locations.CrawlerData());
+            var cinemaChainTask = new Task<List<CinemaChain>>(() => CinemaChains.CrawlerData());
             locationTask.Start();
             cinemaChainTask.Start();
             await Task.WhenAll(locationTask, cinemaChainTask);
