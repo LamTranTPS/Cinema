@@ -15,10 +15,12 @@ namespace Cinema.Web.Controllers
     [RoutePrefix("api/account")]
     public class AccountAPIController : BaseApiController
     {
-        public AccountAPIController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IErrorRepository errorRepository)
+        private IUserRepository _userRepository;
+
+        public AccountAPIController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IErrorRepository errorRepository, IUserRepository userRepository)
             : base(userManager, signInManager, errorRepository)
         {
-
+            _userRepository = userRepository;
         }
         
         [HttpPost]

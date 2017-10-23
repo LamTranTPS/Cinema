@@ -43,7 +43,7 @@ namespace Cinema.Web.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public HttpResponseMessage GetUser(HttpRequestMessage request, [FromUri]string id)
+        public HttpResponseMessage GetUser(HttpRequestMessage request, [FromUri]int id)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -74,7 +74,7 @@ namespace Cinema.Web.Controllers
 
         [HttpGet]
         [Route("delete/{id}")]
-        public HttpResponseMessage Delete(HttpRequestMessage request, string id)
+        public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             var result = _userRepository.Delete(id);
             return request.CreateResponse(HttpStatusCode.OK, new ApiResult(result, result));

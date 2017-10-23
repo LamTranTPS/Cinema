@@ -48,7 +48,7 @@ namespace Cinema.Web.Controllers.API
 
         [HttpGet]
         [Route("delete/{id}")]
-        public HttpResponseMessage Delete(HttpRequestMessage request, string id)
+        public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -66,7 +66,7 @@ namespace Cinema.Web.Controllers.API
                 DateTime dt1970 = new DateTime(1970, 1, 1);
                 DateTime current = DateTime.Now;
                 TimeSpan span = current - dt1970;
-                cinema.ID = span.TotalMilliseconds.ToString();
+                cinema.ID = (int)span.TotalMilliseconds;
                 var result = _cinemaRepository.Add(cinema);
                 return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result));
             });

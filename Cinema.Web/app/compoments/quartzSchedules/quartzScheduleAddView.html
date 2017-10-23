@@ -1,0 +1,42 @@
+﻿
+<section class="panel" ng-controller="quartzScheduleAddController">
+    <header class="panel-heading">
+        Add new Schedule
+    </header>
+    <div class="panel-body">
+        <div class="position-center">
+            <form class="form-horizontal" role="form" formnovalidate name="scheduleAddForm" ng-submit="addSchedule()">
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Name</label>
+                    <div class="col-lg-10">
+                        <input required type="text" class="form-control" name="name" ng-model="schedule.Name">
+                        <span ng-show="scheduleAddForm.name.$invalid" class="text-danger">Enter schedule name</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Time as expression</label>
+                    <div class="col-lg-10">
+                        <input required type="text" class="form-control" name="time" ng-model="schedule.timeExpression">
+                        <span ng-show="scheduleAddForm.time.$invalid" class="text-danger">Enter time as expression(ss mm HH dd MM yyyy)</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Job</label>
+                    <div class="col-lg-10">
+                        <select required ng-model="schedule.jobID" ng-options="option.id as option.name for option in listJob" name="job" class="form-control">
+                            <option value="" disabled>Select chain</option>
+                        </select>
+                        <span ng-show="scheduleAddForm.job.$invalid" class="text-danger">Select job</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                        <button ng-disabled="scheduleAddForm.$invalid" type="submit" class="btn btn-primary">Save</button>
+                        <button ng-click="close()" class="btn btn-default" type="button">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

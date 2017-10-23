@@ -36,6 +36,7 @@
         }}'>
                 <thead>
                     <tr>
+                        <th data-breakpoints="xs">ID</th>
                         <th data-breakpoints="xs">Cinema Name</th>
                         <th data-breakpoints="xs">Cinema Chain</th>
                         <th>Address</th>
@@ -46,6 +47,7 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="cinema in listCinema" data-expanded="true">
+                        <td>{{cinema.id}}</td>
                         <td>{{cinema.name}}</td>
                         <td>{{cinema.cinemaChainName}}</td>
                         <td>{{cinema.address}}</td>

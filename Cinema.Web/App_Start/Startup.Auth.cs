@@ -49,9 +49,10 @@ namespace Cinema.Web
                 {
                     // Enables the application to validate the security stamp when the user logs in.
                     // This is a security feature which is used when you change a password or add an external login to your account.
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser, int>(
                         validateInterval: TimeSpan.FromMinutes(20),
-                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
+                        regenerateIdentityCallback: (manager, user) => user.GenerateUserIdentityAsync(manager),
+                        getUserIdCallback: id => id.GetUserId<int>())
                 }
             });
             // Use a cookie to temporarily store information about a user logging in with a third party login provider

@@ -191,9 +191,9 @@ namespace Cinema.Web.Controllers
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
-        public async Task<ActionResult> ConfirmEmail(string userId, string code)
+        public async Task<ActionResult> ConfirmEmail(int userId, string code)
         {
-            if (userId == null || code == null)
+            if (userId < 1 || code == null)
             {
                 return View("Error");
             }
@@ -304,7 +304,7 @@ namespace Cinema.Web.Controllers
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
         {
             var userId = await SignInManager.GetVerifiedUserIdAsync();
-            if (userId == null)
+            if (userId < 1)
             {
                 return View("Error");
             }

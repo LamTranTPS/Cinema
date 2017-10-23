@@ -9,6 +9,7 @@ namespace Cinema.Web.Models.ViewModels
     {
         public string ID { set; get; }
         public string Name { set; get; }
+        public string Alias { set; get; }
         public string LinkImage { set; get; }
         public string PhoneNumber { set; get; }
         public string Address { set; get; }

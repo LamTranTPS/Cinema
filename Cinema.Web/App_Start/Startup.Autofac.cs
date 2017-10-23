@@ -29,7 +29,7 @@ namespace Cinema.Web
             builder.RegisterType<CinemaDbContext>().AsSelf().InstancePerRequest();
 
             //Asp.net Identity
-            builder.RegisterType<ApplicationUserStore>().As<IUserStore<ApplicationUser>>().InstancePerRequest();
+            builder.RegisterType<UserStore>().As<IUserStore<ApplicationUser, int>>().InstancePerRequest();
             builder.RegisterType<ApplicationUserManager>().AsSelf().InstancePerRequest();
             builder.RegisterType<ApplicationSignInManager>().AsSelf().InstancePerRequest();
             builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();

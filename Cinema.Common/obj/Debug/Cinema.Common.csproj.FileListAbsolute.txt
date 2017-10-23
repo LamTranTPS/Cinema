@@ -8,3 +8,12 @@ C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Comm
 C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Common\obj\Debug\Cinema.Common.csprojResolveAssemblyReference.cache
 C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Common\obj\Debug\Cinema.Common.dll
 C:\Users\tranh\OneDrive\Documents\Visual Studio 2015\WebSites\Cinema\Cinema.Common\obj\Debug\Cinema.Common.pdb
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Common\bin\Debug\Cinema.Common.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Common\bin\Debug\Cinema.Common.pdb
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Common\obj\Debug\Cinema.Common.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Common\obj\Debug\Cinema.Common.pdb
+D:\Projects\DotNet\Cinema\Cinema.Common\bin\Debug\Cinema.Common.dll
+D:\Projects\DotNet\Cinema\Cinema.Common\bin\Debug\Cinema.Common.pdb
+D:\Projects\DotNet\Cinema\Cinema.Common\obj\Debug\Cinema.Common.csprojResolveAssemblyReference.cache
+D:\Projects\DotNet\Cinema\Cinema.Common\obj\Debug\Cinema.Common.dll
+D:\Projects\DotNet\Cinema\Cinema.Common\obj\Debug\Cinema.Common.pdb

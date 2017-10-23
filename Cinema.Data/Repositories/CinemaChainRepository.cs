@@ -9,6 +9,9 @@ namespace Cinema.Data.Repositories
 
     public class CinemaChainRepository : RepositoryBase<CinemaChain>, ICinemaChainRepository
     {
+        public CinemaChainRepository() : base()
+        {
+        }
         public CinemaChainRepository(IDbFactory dbFactory) : base(dbFactory)
         {
         }

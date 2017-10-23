@@ -1,10 +1,11 @@
 ﻿using Cinema.Model.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace Cinema.Data
 {
-    public class CinemaDbContext : IdentityDbContext<ApplicationUser>
+    public class CinemaDbContext : IdentityDbContext<ApplicationUser, Role, int, UserLogin, UserRole, UserClaim>
     {
         public DbSet<Film> Films { set; get; }
         public DbSet<Schedule> Schedules { set; get; }
@@ -12,6 +13,8 @@ namespace Cinema.Data
         public DbSet<CinemaChain> CinemaChains { set; get; }
         public DbSet<Location> Locations { set; get; }
         public DbSet<Error> Errors { set; get; }
+        public DbSet<QuartzJob> QuartzJobs { set; get; }
+        public DbSet<QuartzSchedule> QuartzSchedules { set; get; }
 
         public CinemaDbContext() : base("CinemaConnection")
         {

@@ -17,9 +17,13 @@ namespace Cinema.Data.Infrastructure
 
         bool Delete(int id);
 
+        bool DeleteAll();
+
         bool Delete(Expression<Func<T, bool>> expression);
 
         T Get(int id);
+
+        T Get(string id);
 
         T Get(Expression<Func<T, bool>> expression, string[] includes = null);
 
@@ -34,5 +38,7 @@ namespace Cinema.Data.Infrastructure
         bool Contains(Expression<Func<T, bool>> expression);
 
         bool Contains(int id);
+
+        bool Contains(string id);
     }
 }

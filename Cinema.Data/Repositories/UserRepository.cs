@@ -10,20 +10,17 @@ namespace Cinema.Data.Repositories
     public interface IUserRepository : IRepository<ApplicationUser>
     {
         IEnumerable<ApplicationUser> GetListPaging(out int total, int page = 0, int size = 50, string searchKey = null, string[] includes = null);
-        ApplicationUser Get(string id);
-        bool Delete(string id);
     }
 
     public class UserRepository : RepositoryBase<ApplicationUser>, IUserRepository
     {
-        public UserRepository(IDbFactory dbFactory) : base(dbFactory)
+        public UserRepository() : base()
         {
 
         }
-
-        public ApplicationUser Get(string id)
+        public UserRepository(IDbFactory dbFactory) : base(dbFactory)
         {
-            return Get(u => u.Id == id);
+
         }
 
         public IEnumerable<ApplicationUser> GetListPaging(out int total, int page = 0, int size = 50, string searchKey = null, string[] includes = null)
@@ -37,11 +34,6 @@ namespace Cinema.Data.Repositories
                 return GetListPaging(o => o.OrderBy(u => u.UserName), out total, page, size, u => u.UserName.ToUpper().Contains(searchKey.ToUpper()) || u.Email.Contains(searchKey.ToUpper()), includes);
             }
         }
-
-        public bool Delete(string id)
-        {
-            var user = Get(id);
-            return Delete(user);
-        }
+     
     }
 }

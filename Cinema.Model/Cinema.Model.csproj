@@ -53,7 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\QuartzSchedule.cs" />
+    <Compile Include="Models\QuartzJob.cs" />
+    <Compile Include="Models\IndentityModels.cs" />
     <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Film.cs" />

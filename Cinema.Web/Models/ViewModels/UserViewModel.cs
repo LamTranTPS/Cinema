@@ -7,7 +7,7 @@ namespace Cinema.Web.Models.ViewModels
 {
     public class UserViewModel
     {
-        public virtual string Id { get; set; }
+        public virtual int Id { get; set; }
         public virtual string UserName { get; set; }
         public virtual string Email { get; set; }
         public virtual bool EmailConfirmed { get; set; }

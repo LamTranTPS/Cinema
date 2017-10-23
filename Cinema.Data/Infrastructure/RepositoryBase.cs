@@ -11,7 +11,7 @@ namespace Cinema.Data.Infrastructure
     {
         private readonly IDbSet<T> dbSet;
 
-        protected IDbFactory DbFactory
+        public IDbFactory DbFactory
         {
             private set;
             get;
@@ -21,7 +21,11 @@ namespace Cinema.Data.Infrastructure
         {
             get { return DbFactory.Init(); }
         }
-
+        protected RepositoryBase()
+        {
+            this.DbFactory = new DbFactory();
+            this.dbSet = this.DbContext.Set<T>();
+        }
         protected RepositoryBase(IDbFactory dbFactory)
         {
             this.DbFactory = dbFactory;
@@ -50,6 +54,10 @@ namespace Cinema.Data.Infrastructure
         }
 
         public virtual bool Contains(int id)
+        {
+            return dbSet.Find(id) != null;
+        }
+        public virtual bool Contains(string id)
         {
             return dbSet.Find(id) != null;
         }
@@ -94,20 +102,32 @@ namespace Cinema.Data.Infrastructure
             dbSet.Remove(entity);
             return DbContext.SaveChanges() > 0;
         }
+        public virtual bool DeleteAll()
+        {
+            foreach (var entity in dbSet)
+            {
+                dbSet.Remove(entity);
+            }
+            return DbContext.SaveChanges() > 0;
+        }
 
         public virtual T Get(Expression<Func<T, bool>> expression, string[] includes = null)
         {
             if (includes != null && includes.Count() > 0)
             {
-                return QueryIncludes(includes).First(expression);
+                return expression == null ? QueryIncludes(includes).FirstOrDefault() : QueryIncludes(includes).FirstOrDefault(expression);
             }
             else
             {
-                return dbSet.First(expression);
+                return expression == null ? dbSet.FirstOrDefault() : dbSet.FirstOrDefault(expression);
             }
         }
 
         public virtual T Get(int id)
+        {
+            return dbSet.Find(id);
+        }
+        public virtual T Get(string id)
         {
             return dbSet.Find(id);
         }

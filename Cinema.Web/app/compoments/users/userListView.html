@@ -31,6 +31,7 @@
         }}'>
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th data-breakpoints="xs">User Name</th>
                         <th>Email</th>
                         <th>Phone Number</th>
@@ -41,6 +42,7 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="user in listUser" data-expanded="true">
+                        <td>{{user.id}}</td>
                         <td>{{user.userName}}</td>
                         <td>{{user.email}}</td>
                         <td>{{user.phoneNumber}}</td>

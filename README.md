@@ -1,5 +1,5 @@
 # Cinema
 
-Admin account login <br>
-email: admin.0@cinema.com <br>
+Admin account login(http://localhost:63006/Admin#!/login)
+email: admin@cinema.com
 pass:  cinema

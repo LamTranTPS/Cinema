@@ -8,7 +8,7 @@ namespace Cinema.Web.Controllers
         // GET api/Me
         public GetViewModel Get()
         {
-            var user = UserManager.FindById(User.Identity.GetUserId());
+            var user = UserManager.FindById(User.Identity.GetUserId<int>());
             return new GetViewModel() { Hometown = user.Email };
         }
     }

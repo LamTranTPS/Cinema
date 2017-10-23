@@ -1,0 +1,92 @@
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\obj\Debug\Cinema.Crawler.csprojResolveAssemblyReference.cache
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Crawler.dll.config
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Crawler.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Crawler.pdb
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Common.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Data.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Model.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Service.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\EntityFramework.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Fizzler.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Fizzler.Systems.HtmlAgilityPack.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\HtmlAgilityPack.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Common.pdb
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Data.pdb
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Data.dll.config
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Model.pdb
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Model.dll.config
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Service.pdb
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\EntityFramework.xml
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Fizzler.xml
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Fizzler.Systems.HtmlAgilityPack.xml
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\HtmlAgilityPack.xml
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\obj\Debug\Cinema.Crawler.dll
+C:\Users\lam.tran\Google Drive\Projects\DotNet\Cinema\Cinema.Crawler\obj\Debug\Cinema.Crawler.pdb
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Crawler.dll.config
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Crawler.dll
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Crawler.pdb
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Common.dll
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Data.dll
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Model.dll
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Service.dll
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\EntityFramework.dll
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Fizzler.dll
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Fizzler.Systems.HtmlAgilityPack.dll
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\HtmlAgilityPack.dll
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Common.pdb
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Data.pdb
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Data.dll.config
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Model.pdb
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Model.dll.config
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Cinema.Service.pdb
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\EntityFramework.xml
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Fizzler.xml
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Fizzler.Systems.HtmlAgilityPack.xml
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\HtmlAgilityPack.pdb
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\HtmlAgilityPack.xml
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Projects\DotNet\Cinema\Cinema.Crawler\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Projects\DotNet\Cinema\Cinema.Crawler\obj\Debug\Cinema.Crawler.csprojResolveAssemblyReference.cache
+D:\Projects\DotNet\Cinema\Cinema.Crawler\obj\Debug\Cinema.Crawler.dll
+D:\Projects\DotNet\Cinema\Cinema.Crawler\obj\Debug\Cinema.Crawler.pdb
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Cinema.Crawler.dll.config
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Cinema.Crawler.dll
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Cinema.Crawler.pdb
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Cinema.Common.dll
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Cinema.Data.dll
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Cinema.Model.dll
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Cinema.Service.dll
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\EntityFramework.dll
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Fizzler.dll
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Fizzler.Systems.HtmlAgilityPack.dll
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\HtmlAgilityPack.dll
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Cinema.Common.pdb
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Cinema.Data.pdb
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Cinema.Data.dll.config
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Cinema.Model.pdb
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Cinema.Model.dll.config
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Cinema.Service.pdb
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\EntityFramework.xml
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Fizzler.xml
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Fizzler.Systems.HtmlAgilityPack.xml
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\HtmlAgilityPack.xml
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\obj\Debug\Cinema.Crawler.csprojResolveAssemblyReference.cache
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\obj\Debug\Cinema.Crawler.dll
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\obj\Debug\Cinema.Crawler.pdb
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Quartz.dll
+C:\Users\lam.tran\Desktop\Cinema\Cinema.Crawler\bin\Debug\Quartz.xml

@@ -1,4 +1,5 @@
 ﻿using Cinema.Data.Repositories;
+using Cinema.Model.Models;
 using Cinema.Web.ActionFilters;
 using Cinema.Web.Models;
 using Cinema.Web.Models.Extensions;
@@ -11,7 +12,7 @@ using System.Web.Http;
 namespace Cinema.Web.Controllers.API
 {
     [AdminLog]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Super Admin")]
     [RoutePrefix("api/roles")]
     public class RoleAPIController : BaseApiController
     {
@@ -36,7 +37,7 @@ namespace Cinema.Web.Controllers.API
 
         [HttpPost]
         [Route("")]
-        public HttpResponseMessage Insert(HttpRequestMessage request, [FromBody] IdentityRole role)
+        public HttpResponseMessage Insert(HttpRequestMessage request, [FromBody] Role role)
         {
             return CreateHttpResponse(request, () =>
             {

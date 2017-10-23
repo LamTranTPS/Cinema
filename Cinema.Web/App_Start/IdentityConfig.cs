@@ -11,10 +11,17 @@ using System.Threading.Tasks;
 
 namespace Cinema.Web
 {
-    public class ApplicationUserStore : UserStore<ApplicationUser>
+    public class UserStore : UserStore<ApplicationUser, Role, int, UserLogin, UserRole, UserClaim>
     {
-        public ApplicationUserStore(CinemaDbContext context)
+        public UserStore(CinemaDbContext context)
             : base(context)
+        {
+        }
+    }
+
+    public class RoleStore : RoleStore<Role, int, UserRole>
+    {
+        public RoleStore(CinemaDbContext context) : base(context)
         {
         }
     }
@@ -38,9 +45,9 @@ namespace Cinema.Web
     }
 
     // Configure the application user manager which is used in this application.
-    public class ApplicationUserManager : UserManager<ApplicationUser>
+    public class ApplicationUserManager : UserManager<ApplicationUser, int>
     {
-        public ApplicationUserManager(IUserStore<ApplicationUser> store)
+        public ApplicationUserManager(IUserStore<ApplicationUser, int> store)
             : base(store)
         {
         }
@@ -48,9 +55,9 @@ namespace Cinema.Web
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options,
             IOwinContext context)
         {
-            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<CinemaDbContext>()));
+            var manager = new ApplicationUserManager(new UserStore<ApplicationUser, Role, int, UserLogin, UserRole, UserClaim>(context.Get<CinemaDbContext>()));
             // Configure validation logic for usernames
-            manager.UserValidator = new UserValidator<ApplicationUser>(manager)
+            manager.UserValidator = new UserValidator<ApplicationUser, int>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
                 RequireUniqueEmail = true
@@ -73,11 +80,11 @@ namespace Cinema.Web
 
             // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
             // You can write your own provider and plug it in here.
-            manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<ApplicationUser>
+            manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<ApplicationUser, int>
             {
                 MessageFormat = "Your security code is {0}"
             });
-            manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<ApplicationUser>
+            manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<ApplicationUser, int>
             {
                 Subject = "Security Code",
                 BodyFormat = "Your security code is {0}"
@@ -88,14 +95,14 @@ namespace Cinema.Web
             if (dataProtectionProvider != null)
             {
                 manager.UserTokenProvider =
-                    new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
+                    new DataProtectorTokenProvider<ApplicationUser, int>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
             return manager;
         }
     }
 
     // Configure the application sign-in manager which is used in this application.
-    public class ApplicationSignInManager : SignInManager<ApplicationUser, string>
+    public class ApplicationSignInManager : SignInManager<ApplicationUser, int>
     {
         public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager) :
             base(userManager, authenticationManager)

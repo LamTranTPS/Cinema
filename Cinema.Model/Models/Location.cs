@@ -22,7 +22,6 @@ namespace Cinema.Model.Models
 
         public decimal? Latitude { set; get; }
 
-
         public virtual IEnumerable<Cinema> Cinemas { set; get; }
     }
 }

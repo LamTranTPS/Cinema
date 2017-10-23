@@ -128,6 +128,9 @@
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Quartz, Version=3.0.0.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quartz.3.0.0-beta1\lib\net452\Quartz.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -142,6 +145,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -230,6 +234,7 @@
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\QuartzConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -266,7 +271,9 @@
     <Compile Include="Controllers\API\CinemaAPIController.cs" />
     <Compile Include="Controllers\API\LocationAPIController.cs" />
     <Compile Include="Controllers\API\CinemaChainAPIController.cs" />
+    <Compile Include="Controllers\API\QuartzJobAPIController.cs" />
     <Compile Include="Controllers\API\RoleAPIController.cs" />
+    <Compile Include="Controllers\API\QuartzScheduleAPIController.cs" />
     <Compile Include="Controllers\API\UserAPIController.cs" />
     <Compile Include="Controllers\API\AccountAPIController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -281,11 +288,16 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\API\ApiResult.cs" />
     <Compile Include="Models\Extensions\CinemaExtension.cs" />
+    <Compile Include="Models\Extensions\QuartzScheduleExtension.cs" />
+    <Compile Include="Models\Extensions\QuartzJobExtension .cs" />
     <Compile Include="Models\Extensions\UserExtension.cs" />
     <Compile Include="Models\Extensions\RoleExtension.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MeViewModels.cs" />
     <Compile Include="Models\ViewModels\CinemaViewModel.cs" />
+    <Compile Include="Models\ViewModels\LocationViewModel.cs" />
+    <Compile Include="Models\ViewModels\QuartzScheduleViewModel.cs" />
+    <Compile Include="Models\ViewModels\QuartzJobViewModel.cs" />
     <Compile Include="Models\ViewModels\UserViewModel.cs" />
     <Compile Include="Models\ViewModels\RoleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -295,6 +307,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\compoments\quartzSchedules\quartzScheduleAddController.js" />
+    <Content Include="app\compoments\quartzSchedules\quartzScheduleAddView.html" />
+    <Content Include="app\compoments\quartzSchedules\quartzScheduleListController.js" />
+    <Content Include="app\compoments\quartzSchedules\quartzScheduleListView.html" />
+    <Content Include="app\compoments\quartzSchedules\quartzSchedules.module.js" />
     <Content Include="app\compoments\cinemas\cinemaListController.js" />
     <Content Include="app\compoments\cinemas\cinemaListView.html" />
     <Content Include="app\compoments\cinemas\cinemas.module.js" />
@@ -857,6 +874,10 @@
       <Project>{b242f14d-f5b4-4bba-a8de-a66ff870ce2f}</Project>
       <Name>Cinema.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Cinema.Crawler\Cinema.Crawler.csproj">
+      <Project>{53d0df3d-473e-499f-9138-72016235ed2f}</Project>
+      <Name>Cinema.Crawler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Cinema.Data\Cinema.Data.csproj">
       <Project>{56b827f7-0a6a-449c-bb45-b23bbf61cc78}</Project>
       <Name>Cinema.Data</Name>
@@ -877,6 +898,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

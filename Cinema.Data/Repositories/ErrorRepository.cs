@@ -9,8 +9,13 @@ namespace Cinema.Data.Repositories
 
     public class ErrorRepository : RepositoryBase<Error>, IErrorRepository
     {
+        public ErrorRepository() : base()
+        {
+
+        }
         public ErrorRepository(IDbFactory dbFactory) : base(dbFactory)
         {
+
         }
     }
 }

@@ -8,8 +8,7 @@ namespace Cinema.Model.Models
     [Table("Film")]
     public class Film
     {
-        public const int MAX_LENGTH_ID = 20;
-        public const int MAX_LENGTH_NAME = 50;
+        public const int MAX_LENGTH_NAME = 100;
         public const int MAX_LENGTH_TIME = 50;
         public const int MAX_LENGTH_GENRE = 50;
         public const int MAX_LENGTH_LINK_TRAILER = 200;
@@ -22,8 +21,8 @@ namespace Cinema.Model.Models
         public const int MAX_LENGTH_CLASSIFICATION = 20;
 
         [Key]
-        [MaxLength(MAX_LENGTH_ID)]
-        public string ID { set; get; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ID { set; get; }
 
         [Required]
         [MaxLength(MAX_LENGTH_NAME)]
@@ -64,12 +63,6 @@ namespace Cinema.Model.Models
         public decimal? IMDB { set; get; }
 
         public bool? IsHot { set; get; }
-
-        [MaxLength(Location.MAX_LENGTH_ID)]
-        public string LocationID { set; get; }
-
-        [MaxLength(CinemaChain.MAX_LENGTH_ID)]
-        public string CinemaChainID { set; get; }
 
         public IEnumerable<Schedule> Schedules { set; get; }
     }

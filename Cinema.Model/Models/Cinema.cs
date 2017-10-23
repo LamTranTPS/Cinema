@@ -7,7 +7,6 @@ namespace Cinema.Model.Models
     [Table("Cinema")]
     public class Cinema
     {
-        public const int MAX_LENGTH_ID = 20;
         public const int MAX_LENGTH_NAME = 50;
         public const int MAX_LENGTH_LINK_IMAGE = 200;
         public const int MAX_LENGTH_PHONE_NUMBER = 30;
@@ -18,8 +17,8 @@ namespace Cinema.Model.Models
         public const string FOREIGNKEY_CINEMACHAIN = "CinemaChainID";
 
         [Key]
-        [MaxLength(MAX_LENGTH_ID)]
-        public string ID { set; get; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ID { set; get; }
 
         [Required]
         [MaxLength(MAX_LENGTH_NAME)]

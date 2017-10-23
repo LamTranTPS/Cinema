@@ -7,9 +7,8 @@ namespace Cinema.Model.Models
     [Table("Schedule")]
     public class Schedule
     {
-        public const int MAX_LENGTH_ID = 20;
+        public const int MAX_LENGTH_ID = 30;
         public const int MAX_LENGTH_LINK_TICKET = 200;
-        public const int MAX_LENGTH_TIME = 20;
         public const int MAX_LENGTH_TYPE = 20;
 
         public const string FOREIGNKEY_CINEMA = "CinemaID";
@@ -22,24 +21,18 @@ namespace Cinema.Model.Models
         [MaxLength(MAX_LENGTH_LINK_TICKET)]
         public string LinkTicket { set; get; }
 
-        public DateTime Date { set; get; }
-
-        [Required]
-        [MaxLength(MAX_LENGTH_TIME)]
-        public string Time { set; get; }
+        public DateTime DateTime { set; get; }
 
         [MaxLength(MAX_LENGTH_TYPE)]
         public string Type { set; get; }
 
         [Required]
-        [MaxLength(Cinema.MAX_LENGTH_ID)]
         [Column(FOREIGNKEY_CINEMA)]
-        public string CinemaID { set; get; }
+        public int CinemaID { set; get; }
 
         [Required]
-        [MaxLength(Film.MAX_LENGTH_ID)]
         [Column(FOREIGNKEY_FILM)]
-        public string FilmID { set; get; }
+        public int FilmID { set; get; }
 
         [ForeignKey(FOREIGNKEY_CINEMA)]
         public virtual Cinema Cinema { set; get; }

@@ -3,11 +3,9 @@
 
     cinemaAddController.$inject = ["$scope", '$state', '$stateParams', "apiService", "notifyService"];
     function cinemaAddController($scope, $state, $stateParams, apiService, notifyService) {
-        $scope.listSupplier = [];
         $scope.cinema = {
         };
         $scope.close = close;
-
         $scope.addCinema = addCinema;
 
         function loadCinemaChain() {
