@@ -65,11 +65,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Crawler\BaseCrawler.cs" />
+    <Compile Include="Crawler\EventCrawler.cs" />
     <Compile Include="Crawler\FilmCrawler.cs" />
     <Compile Include="Crawler\CinemaCrawler.cs" />
     <Compile Include="Crawler\CrawlerData.cs" />
     <Compile Include="Crawler\CinemaChainCrawler.cs" />
     <Compile Include="Crawler\LocationCrawler.cs" />
+    <Compile Include="Models\CrawlerEventJob.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\CrawlerCinemaJob.cs" />
     <Compile Include="Models\CrawlerFilmJob.cs" />

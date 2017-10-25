@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Event.cs" />
     <Compile Include="Models\QuartzSchedule.cs" />
     <Compile Include="Models\QuartzJob.cs" />
     <Compile Include="Models\IndentityModels.cs" />

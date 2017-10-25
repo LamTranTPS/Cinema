@@ -21,6 +21,8 @@ namespace Cinema.Model.Models
         [MaxLength(MAX_LENGTH_TIME)]
         public string TimeExpression { set; get; }
 
+        public bool Status { set; get; }
+
         [Required]
         [Column(FOREIGNKEY_JOB)]
         public int JobID { set; get; }

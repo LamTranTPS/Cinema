@@ -42,7 +42,7 @@
                         <th>Address</th>
                         <th>Phone Number</th>
                         <th data-breakpoints="xs">Location</th>
-                        <th data-breakpoints="xs sm md" data-title="DOB" class="text-center">Action</th>
+                        <th style="min-width:150px !important" data-breakpoints="xs sm md" data-title="DOB" class="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,7 +56,7 @@
                             {{cinema.locationName}}
                         </td>
                         <td class="text-center">
-                            <button class="btn btn-default" ui-sref="product_edit({category: 'Non', id: product.Id})"><i class="fa fa-pencil text-primary text-active"></i></button>
+                            <button class="btn btn-default" ui-sref="cinemas/edit({id: cinema.id})"><i class="fa fa-pencil text-primary text-active"></i></button>
                             <button class="btn btn-default" ng-click="deleteConfirm(cinema.id)" style="margin-left: 10px"><i class="fa fa-trash text-danger text"></i></button>
                         </td>
                     </tr>

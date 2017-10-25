@@ -22,13 +22,14 @@ namespace Cinema.Data.Repositories
 
         public IEnumerable<Model.Models.Cinema> GetListPaging(out int total, int page = 0, int size = 50, string searchKey = null)
         {
+            var includes = new string[] { "CinemaChain", "Location" };
             if (string.IsNullOrEmpty(searchKey))
             {
-                return GetListPaging(o => o.OrderBy(c => c.Name), out total, page, size, null, new string[] { "CinemaChain", "Location" });
+                return GetListPaging(o => o.OrderBy(c => c.Name), out total, page, size, null, includes);
             }
             else
             {
-                return GetListPaging(o => o.OrderBy(c => c.Name), out total, page, size, c => c.Name.ToUpper().Contains(searchKey.ToUpper()) || c.Address.Contains(searchKey.ToUpper()), new string[] { "CinemaChain", "Location" });
+                return GetListPaging(o => o.OrderBy(c => c.Name), out total, page, size, c => (c.Name + c.Address).ToUpper().Contains(searchKey.ToUpper()), includes);
             }
         }
 

@@ -35,7 +35,7 @@ namespace Cinema.Web
 
         public void Crawler()
         {
-            new CrawlerData().CrawlerFilm();
+            new CrawlerData().CrawlerAll();
         }
     }
 }

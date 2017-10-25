@@ -1,8 +1,8 @@
 ﻿(function (app) {
     app.controller("quartzScheduleAddController", quartzScheduleAddController);
 
-    quartzScheduleAddController.$inject = ["$scope", '$state', '$stateParams', "apiService", "notifyService"];
-    function quartzScheduleAddController($scope, $state, $stateParams, apiService, notifyService) {
+    quartzScheduleAddController.$inject = ["$scope", '$state', "apiService", "notifyService"];
+    function quartzScheduleAddController($scope, $state, apiService, notifyService) {
         $scope.schedule = {
         };
         $scope.close = close;

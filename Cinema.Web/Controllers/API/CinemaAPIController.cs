@@ -2,6 +2,7 @@
 using Cinema.Web.ActionFilters;
 using Cinema.Web.Models;
 using Cinema.Web.Models.Extensions;
+using Cinema.Web.Models.ViewModels;
 using System;
 using System.Linq;
 using System.Net;
@@ -17,15 +18,30 @@ namespace Cinema.Web.Controllers.API
     {
         private ICinemaRepository _cinemaRepository;
 
-        public CinemaAPIController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IErrorRepository errorRepository, ICinemaRepository cinemaRepository)
-            : base(userManager, signInManager, errorRepository)
+        public CinemaAPIController(IErrorRepository errorRepository, ICinemaRepository cinemaRepository)
+            : base(errorRepository)
         {
             _cinemaRepository = cinemaRepository;
         }
 
         [HttpGet]
+        [Route("{id}")]
+        public HttpResponseMessage Get(HttpRequestMessage request, [FromUri]int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var result = _cinemaRepository.Get(id);
+                if (result != null)
+                {
+                    return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result.ToViewModel()));
+                }
+                return request.CreateResponse(HttpStatusCode.NotFound, new ApiResult(false, "Id not found!"));
+            });
+        }
+
+        [HttpGet]
         [Route("")]
-        public HttpResponseMessage GetCinemas(HttpRequestMessage request)
+        public HttpResponseMessage GetAll(HttpRequestMessage request)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -36,7 +52,7 @@ namespace Cinema.Web.Controllers.API
 
         [HttpGet]
         [Route("{page}/{size}/{searchKey?}")]
-        public HttpResponseMessage GetUsers(HttpRequestMessage request, int page, int size, string searchKey = "")
+        public HttpResponseMessage GetPage(HttpRequestMessage request, int page, int size, string searchKey = "")
         {
             return CreateHttpResponse(request, () =>
             {
@@ -59,7 +75,7 @@ namespace Cinema.Web.Controllers.API
 
         [HttpPost]
         [Route("insert")]
-        public HttpResponseMessage Add(HttpRequestMessage request, [FromBody] Model.Models.Cinema cinema)
+        public HttpResponseMessage Insert(HttpRequestMessage request, [FromBody] CinemaViewModel cinema)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -67,7 +83,18 @@ namespace Cinema.Web.Controllers.API
                 DateTime current = DateTime.Now;
                 TimeSpan span = current - dt1970;
                 cinema.ID = (int)span.TotalMilliseconds;
-                var result = _cinemaRepository.Add(cinema);
+                var result = _cinemaRepository.Add(cinema.ToEntityModel());
+                return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result));
+            });
+        }
+
+        [HttpPost]
+        [Route("update")]
+        public HttpResponseMessage Update(HttpRequestMessage request, [FromBody] CinemaViewModel cinema)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var result = _cinemaRepository.Update(cinema.ToEntityModel());
                 return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result));
             });
         }

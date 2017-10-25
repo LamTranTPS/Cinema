@@ -10,7 +10,8 @@ namespace Cinema.Crawler.Models
 
         public Task Execute(IJobExecutionContext context)
         {
-            return _crawlerData.CrawlerCinema();
+            _crawlerData.CrawlerCinema();
+            return Task.FromResult<object>(null);
         }
     }
 }

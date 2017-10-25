@@ -7,7 +7,7 @@ namespace Cinema.Web.Models.ViewModels
 {
     public class CinemaViewModel
     {
-        public string ID { set; get; }
+        public int ID { set; get; }
         public string Name { set; get; }
         public string Alias { set; get; }
         public string LinkImage { set; get; }

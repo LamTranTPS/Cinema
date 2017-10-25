@@ -1,0 +1,56 @@
+﻿
+<section class="panel" ng-controller="cinemaEditController">
+    <header class="panel-heading">
+        Edit cinema
+    </header>
+    <div class="panel-body">
+        <div class="position-center">
+            <form class="form-horizontal" role="form" formnovalidate name="cinemaEditForm" ng-submit="editCinema()">
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Cinema Name</label>
+                    <div class="col-lg-10">
+                        <input required type="text" class="form-control" name="name" ng-model="cinema.name">
+                        <span ng-show="cinemaEditForm.name.$invalid" class="text-danger">Enter cinema name</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Cinema chain</label>
+                    <div class="col-lg-10">
+                        <select required ng-model="cinema.cinemaChainID" ng-options="option.id as option.name for option in listCinemaChain" name="cinemachain" class="form-control">
+                            <option value="" disabled>Select chain</option>
+                        </select>
+                        <span ng-show="cinemaEditForm.cinemachain.$invalid" class="text-danger">Select cinema chain</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Location</label>
+                    <div class="col-lg-10">
+                        <select required ng-model="cinema.locationID" ng-options="option.id as option.name for option in listLocation" name="location" class="form-control">
+                            <option value="" disabled>Select location</option>
+                        </select>
+                        <span ng-show="cinemaEditForm.location.$invalid" class="text-danger">Select location</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Phone Number</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" name="uintprice" ng-model="cinema.phoneNumber">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 col-sm-2 control-label">Address</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" name="package" ng-model="cinema.address">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                        <button ng-disabled="cinemaEditForm.$invalid" type="submit" class="btn btn-primary">Save</button>
+                        <button ng-click="close()" class="btn btn-default" type="button">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

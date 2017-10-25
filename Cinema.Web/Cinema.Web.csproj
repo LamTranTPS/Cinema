@@ -269,6 +269,9 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\API\CinemaAPIController.cs" />
+    <Compile Include="Controllers\API\EventAPIController.cs" />
+    <Compile Include="Controllers\API\ScheduleAPIController.cs" />
+    <Compile Include="Controllers\API\FilmAPIController.cs" />
     <Compile Include="Controllers\API\LocationAPIController.cs" />
     <Compile Include="Controllers\API\CinemaChainAPIController.cs" />
     <Compile Include="Controllers\API\QuartzJobAPIController.cs" />
@@ -288,6 +291,9 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\API\ApiResult.cs" />
     <Compile Include="Models\Extensions\CinemaExtension.cs" />
+    <Compile Include="Models\Extensions\ScheduleExtension.cs" />
+    <Compile Include="Models\Extensions\EventExtension.cs" />
+    <Compile Include="Models\Extensions\FilmExtension.cs" />
     <Compile Include="Models\Extensions\QuartzScheduleExtension.cs" />
     <Compile Include="Models\Extensions\QuartzJobExtension .cs" />
     <Compile Include="Models\Extensions\UserExtension.cs" />
@@ -295,6 +301,9 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MeViewModels.cs" />
     <Compile Include="Models\ViewModels\CinemaViewModel.cs" />
+    <Compile Include="Models\ViewModels\ScheduleViewModel.cs" />
+    <Compile Include="Models\ViewModels\EventViewModel.cs" />
+    <Compile Include="Models\ViewModels\FilmViewModel.cs" />
     <Compile Include="Models\ViewModels\LocationViewModel.cs" />
     <Compile Include="Models\ViewModels\QuartzScheduleViewModel.cs" />
     <Compile Include="Models\ViewModels\QuartzJobViewModel.cs" />
@@ -307,6 +316,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\compoments\events\eventAddController.js" />
+    <Content Include="app\compoments\events\eventAddView.html" />
+    <Content Include="app\compoments\events\eventEditController.js" />
+    <Content Include="app\compoments\events\eventEditView.html" />
+    <Content Include="app\compoments\events\eventListController.js" />
+    <Content Include="app\compoments\events\eventListView.html" />
+    <Content Include="app\compoments\events\events.module.js" />
+    <Content Include="app\compoments\cinemas\cinemaEditController.js" />
+    <Content Include="app\compoments\cinemas\cinemaEditView.html" />
     <Content Include="app\compoments\quartzSchedules\quartzScheduleAddController.js" />
     <Content Include="app\compoments\quartzSchedules\quartzScheduleAddView.html" />
     <Content Include="app\compoments\quartzSchedules\quartzScheduleListController.js" />
@@ -334,6 +352,10 @@
     <Content Include="app\shared\services\loginService.js" />
     <Content Include="app\shared\services\notifyService.js" />
     <Content Include="app\shared\views\baseView.html" />
+    <Content Include="App_Data\CinemaMDB.mdf" />
+    <Content Include="App_Data\CinemaMDB_log.ldf">
+      <DependentUpon>CinemaMDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="bower_components\angular-loaders\demo\demo.css" />
@@ -853,7 +875,6 @@
   <ItemGroup>
     <Folder Include="app\shared\footer\" />
     <Folder Include="app\shared\navigation\" />
-    <Folder Include="App_Data\" />
     <Folder Include="resources\client\" />
   </ItemGroup>
   <ItemGroup>

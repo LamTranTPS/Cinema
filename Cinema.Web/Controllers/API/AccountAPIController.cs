@@ -1,28 +1,24 @@
 ﻿using Cinema.Data.Repositories;
 using Cinema.Web.Models;
-using System;
-using System.Linq;
+using Microsoft.AspNet.Identity.Owin;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
-using System.Web.Http.Results;
-using Microsoft.AspNet.Identity.Owin;
 
 namespace Cinema.Web.Controllers
 {
     [RoutePrefix("api/account")]
     public class AccountAPIController : BaseApiController
     {
-        private IUserRepository _userRepository;
+        private ApplicationSignInManager _signInManager;
 
-        public AccountAPIController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IErrorRepository errorRepository, IUserRepository userRepository)
-            : base(userManager, signInManager, errorRepository)
+        public AccountAPIController(ApplicationSignInManager signInManager, IErrorRepository errorRepository)
+            : base(errorRepository)
         {
-            _userRepository = userRepository;
+            _signInManager = signInManager;
         }
-        
+
         [HttpPost]
         [AllowAnonymous]
         [Route("login")]
@@ -32,7 +28,7 @@ namespace Cinema.Web.Controllers
             {
                 return request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
-            var result = await SignInManager.PasswordSignInAsync(account.UserName, account.Password, account.RememberMe, shouldLockout: false);
+            var result = await _signInManager.PasswordSignInAsync(account.UserName, account.Password, account.RememberMe, shouldLockout: false);
             if (result == SignInStatus.Success)
             {
                 return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result));

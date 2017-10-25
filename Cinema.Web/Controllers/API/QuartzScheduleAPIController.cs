@@ -17,8 +17,8 @@ namespace Cinema.Web.Controllers
     {
         private IQuartzScheduleRepository _quartzScheduleRepository;
 
-        public QuartzScheduleAPIController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IErrorRepository errorRepository, IQuartzScheduleRepository quartzScheduleRepository)
-            : base(userManager, signInManager, errorRepository)
+        public QuartzScheduleAPIController(IErrorRepository errorRepository, IQuartzScheduleRepository quartzScheduleRepository)
+            : base(errorRepository)
         {
             _quartzScheduleRepository = quartzScheduleRepository;
         }
@@ -51,12 +51,12 @@ namespace Cinema.Web.Controllers
 
         [HttpGet]
         [Route("{page}/{size}/{searchKey?}")]
-        public HttpResponseMessage GetUsers(HttpRequestMessage request, int page, int size, string searchKey = "")
+        public HttpResponseMessage GetPage(HttpRequestMessage request, int page, int size, string searchKey = "")
         {
             return CreateHttpResponse(request, () =>
             {
                 int total = 0;
-                var result = _quartzScheduleRepository.GetListPaging(out total, page, size, new string[] { "Job" } , searchKey ?? "").ToViewModel();
+                var result = _quartzScheduleRepository.GetListPaging(out total, page, size, searchKey ?? "").ToViewModel();
                 return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result, total));
             });
         }
@@ -65,21 +65,47 @@ namespace Cinema.Web.Controllers
         [Route("delete/{id}")]
         public HttpResponseMessage Delete(HttpRequestMessage request, int id)
         {
-            QuartzConfig.DeleteJob(id).Wait();
-            var result = _quartzScheduleRepository.Delete(id);
-            return request.CreateResponse(HttpStatusCode.OK, new ApiResult(result, result));
+            return CreateHttpResponse(request, () =>
+            {
+                QuartzConfig.DeleteJob(id).Wait();
+                var result = _quartzScheduleRepository.Delete(id);
+                return request.CreateResponse(HttpStatusCode.OK, new ApiResult(result, result));
+            });
         }
 
         [HttpPost]
         [Route("insert")]
-        public HttpResponseMessage Add(HttpRequestMessage request, [FromBody] QuartzScheduleViewModel schedule)
+        public HttpResponseMessage Insert(HttpRequestMessage request, [FromBody] QuartzScheduleViewModel schedule)
         {
             return CreateHttpResponse(request, () =>
             {
                 var result = _quartzScheduleRepository.Add(schedule.ToEntityModel());
-                var newSchedule = _quartzScheduleRepository.Get(s => s.ID == result.ID, new string[] { "Job" });
-                QuartzConfig.AddScheduleAsync(newSchedule).Wait();                
+                var newSchedule = _quartzScheduleRepository.Get(s => s.ID == result.ID);
                 return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result));
+            });
+        }
+
+        [HttpGet]
+        [Route("start/{id}")]
+        public HttpResponseMessage Start(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                _quartzScheduleRepository.UpdateStatus(id, true);
+                QuartzConfig.StartJob(id).Wait();
+                return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, true));
+            });
+        }
+
+        [HttpGet]
+        [Route("pause/{id}")]
+        public HttpResponseMessage Pause(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                _quartzScheduleRepository.UpdateStatus(id, false);
+                QuartzConfig.PauseJob(id).Wait();
+                return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, true));
             });
         }
     }

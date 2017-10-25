@@ -18,28 +18,41 @@ namespace Cinema.Crawler.Crawler
         private CinemaChainCrawler CinemaChains;
         private CinemaCrawler Cinemas;
         private FilmCrawler Films;
+        private EventCrawler Events;
         public CrawlerData()
         {
             Locations = new LocationCrawler();
             CinemaChains = new CinemaChainCrawler();
             Cinemas = new CinemaCrawler();
             Films = new FilmCrawler();
+            Events = new EventCrawler();
         }
-
-        public void CrawlerFilm()
+        public void CrawlerAll()
         {
             var watch = Stopwatch.StartNew();
-            //CrawlerCinema().Wait();
-            //Debug.WriteLine("Update Cinema done: " + watch.ElapsedMilliseconds);
-            Films.CrawlerData();
+            CrawlerCinema();
+            Debug.WriteLine("Update Cinema done: " + watch.ElapsedMilliseconds);
+            CrawlerEvent();
+            Debug.WriteLine("Update Event done: " + watch.ElapsedMilliseconds);
+            CrawlerFilm();
+            Debug.WriteLine("Update Film done: " + watch.ElapsedMilliseconds);
             watch.Stop();
             Debug.WriteLine("Update data done: " + watch.ElapsedMilliseconds);
         }
 
-        public async Task CrawlerCinema()
+        public void CrawlerCinema()
         {
-            await CrawlerLocationAndChain();
+            CrawlerLocationAndChain().Wait();
             Cinemas.CrawlerData();
+        }
+
+        public void CrawlerFilm()
+        {
+            Films.CrawlerData();
+        }
+        public void CrawlerEvent()
+        {
+            Events.CrawlerData();
         }
 
         public async Task CrawlerLocationAndChain()

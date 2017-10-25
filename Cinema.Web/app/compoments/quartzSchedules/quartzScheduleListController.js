@@ -12,6 +12,7 @@
         $scope.getListSchedule = getListSchedule;
         $scope.search = search;
         $scope.deleteConfirm = deleteConfirm;
+        $scope.startOrPause = startOrPause;
 
         function search() {
             getListSchedule(0);
@@ -32,7 +33,7 @@
             });
         }
 
-        function deleteConfirm(id) {
+        function deleteConfirm(id, status) {
             $ngBootbox.confirm("Do you want to delete?").then(function () {
                 apiService.get("/api/quartzschedules/delete/" + id, null, function (result) {
                     if (result.data.success) {
@@ -46,6 +47,36 @@
                     notifyService.displayError(error);
                 });
             });
+        }
+
+        function startOrPause(index) {
+            if ($scope.listSchedule[index].status) {
+                $ngBootbox.confirm("Do you want to pause?").then(function () {
+                    apiService.get("/api/quartzschedules/pause/" + $scope.listSchedule[index].id, null, function (result) {
+                        if (result.data.success) {
+                            notifyService.displaySuccess('Paused!');
+                            $scope.listSchedule[index].status = false;
+                        } else {
+                            notifyService.displayWarning('Error!');
+                        }
+                    }, function (error) {
+                        $scope.error = error;
+                        notifyService.displayError(error);
+                    });
+                });
+            } else {
+                apiService.get("/api/quartzschedules/start/" + $scope.listSchedule[index].id, null, function (result) {
+                    if (result.data.success) {
+                        notifyService.displaySuccess('Started!');
+                        $scope.listSchedule[index].status = true;
+                    } else {
+                        notifyService.displayWarning('Error!');
+                    }
+                }, function (error) {
+                    $scope.error = error;
+                    notifyService.displayError(error);
+                });
+            }
         }
 
         $scope.getListSchedule(0);

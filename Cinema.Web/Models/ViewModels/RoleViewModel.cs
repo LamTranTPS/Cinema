@@ -9,5 +9,6 @@ namespace Cinema.Web.Models.ViewModels
     {
         public string Id { get; set; }
         public string Name { get; set; }
+        public bool Enable { get; set; }
     }
 }

@@ -9,8 +9,10 @@ namespace Cinema.Data.Repositories
 {
     public interface IQuartzScheduleRepository : IRepository<QuartzSchedule>
     {
-        IEnumerable<QuartzSchedule> GetAll(string[] includes = null, Expression<Func<QuartzSchedule, bool>> expression = null);
-        IEnumerable<QuartzSchedule> GetListPaging(out int total, int page = 0, int size = 50, string[] includes = null, string searchKey = "");
+        new QuartzSchedule Get(int id);
+        IEnumerable<QuartzSchedule> GetAll(bool onlyStart = false);
+        IEnumerable<QuartzSchedule> GetListPaging(out int total, int page = 0, int size = 50, string searchKey = "", bool onlyStart = false);
+        bool UpdateStatus(int id, bool status);
     }
 
     public class QuartzScheduleRepository : RepositoryBase<QuartzSchedule>, IQuartzScheduleRepository
@@ -24,18 +26,40 @@ namespace Cinema.Data.Repositories
 
         }
 
-        public IEnumerable<QuartzSchedule> GetAll(string[] includes = null, Expression<Func<QuartzSchedule, bool>> expression = null)
-            => GetAll(o => o.OrderBy(s => s.Name), includes, expression);
-        public IEnumerable<QuartzSchedule> GetListPaging(out int total, int page = 0, int size = 50, string[] includes = null, string searchKey = "")
+        public new QuartzSchedule Get(int id)
         {
+            return Get(s => s.ID == id, new string[] { "Job" });
+        }
+
+        public IEnumerable<QuartzSchedule> GetAll(bool onlyStart = false)
+        {
+            var includes = new string[] { "Job" };
+            return onlyStart ?
+                GetAll(o => o.OrderBy(s => s.Name), includes, s => s.Status) :
+                GetAll(o => o.OrderBy(s => s.Name), includes);
+        }
+        public IEnumerable<QuartzSchedule> GetListPaging(out int total, int page = 0, int size = 50, string searchKey = "", bool onlyStart = false)
+        {
+            var includes = new string[] { "Job" };
             if (string.IsNullOrEmpty(searchKey))
             {
-                return GetListPaging(o => o.OrderBy(s => s.Name), out total, page, size, null, includes);
+                return onlyStart ?
+                        GetListPaging(o => o.OrderBy(s => s.Name), out total, page, size, s => s.Status, includes) :
+                        GetListPaging(o => o.OrderBy(s => s.Name), out total, page, size, null, includes);
             }
             else
             {
-                return GetListPaging(o => o.OrderBy(s => s.Name), out total, page, size, s => s.Name.ToUpper().Contains(searchKey.ToUpper()), includes);
+                return onlyStart ?
+                    GetListPaging(o => o.OrderBy(s => s.Name), out total, page, size, s => s.Name.ToUpper().Contains(searchKey.ToUpper()) && s.Status, includes):
+                    GetListPaging(o => o.OrderBy(s => s.Name), out total, page, size, s => s.Name.ToUpper().Contains(searchKey.ToUpper()), includes);
             }
+        }
+
+        public bool UpdateStatus(int id, bool status)
+        {
+            var schedule = Get(id);
+            schedule.Status = status;
+            return Update(schedule);
         }
     }
 }

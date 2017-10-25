@@ -1,9 +1,7 @@
 ﻿using Cinema.Data.Repositories;
-using Cinema.Model.Models;
 using Cinema.Web.ActionFilters;
 using Cinema.Web.Models;
 using Cinema.Web.Models.Extensions;
-using Microsoft.AspNet.Identity.EntityFramework;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -18,8 +16,8 @@ namespace Cinema.Web.Controllers.API
     {
         private IQuartzJobRepository _quartzJobRepository;
 
-        public QuartzJobAPIController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IErrorRepository errorRepository, IQuartzJobRepository quartzJobRepository)
-            : base(userManager, signInManager, errorRepository)
+        public QuartzJobAPIController(IErrorRepository errorRepository, IQuartzJobRepository quartzJobRepository)
+            : base(errorRepository)
         {
             _quartzJobRepository = quartzJobRepository;
         }

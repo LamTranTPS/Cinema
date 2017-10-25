@@ -1,9 +1,8 @@
 ﻿using Cinema.Data.Repositories;
-using Cinema.Model.Models;
 using Cinema.Web.ActionFilters;
 using Cinema.Web.Models;
 using Cinema.Web.Models.Extensions;
-using Microsoft.AspNet.Identity.EntityFramework;
+using Cinema.Web.Models.ViewModels;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -18,15 +17,15 @@ namespace Cinema.Web.Controllers.API
     {
         private IRoleRepository _roleRepository;
 
-        public RoleAPIController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IErrorRepository errorRepository, IRoleRepository roleRepository)
-            : base(userManager, signInManager, errorRepository)
+        public RoleAPIController(IErrorRepository errorRepository, IRoleRepository roleRepository)
+            : base(errorRepository)
         {
             _roleRepository = roleRepository;
         }
 
         [HttpGet]
         [Route("")]
-        public HttpResponseMessage GetRoles(HttpRequestMessage request)
+        public HttpResponseMessage GetAll(HttpRequestMessage request)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -36,12 +35,12 @@ namespace Cinema.Web.Controllers.API
         }
 
         [HttpPost]
-        [Route("")]
-        public HttpResponseMessage Insert(HttpRequestMessage request, [FromBody] Role role)
+        [Route("insert")]
+        public HttpResponseMessage Insert(HttpRequestMessage request, [FromBody] RoleViewModel role)
         {
             return CreateHttpResponse(request, () =>
             {
-                var result = _roleRepository.Add(role);
+                var result = _roleRepository.Add(role.ToEntityModel());
                 return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result.ToViewModel()));
             });
         }

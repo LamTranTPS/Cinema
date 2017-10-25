@@ -3,6 +3,7 @@ using Cinema.Model.Models;
 using Cinema.Web.ActionFilters;
 using Cinema.Web.Models;
 using Cinema.Web.Models.Extensions;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -15,25 +16,26 @@ namespace Cinema.Web.Controllers
     [RoutePrefix("api/users")]
     public class UserAPIController : BaseApiController
     {
-
         private IUserRepository _userRepository;
         private IRoleRepository _roleRepository;
+        private IUserRoleRepository _userRoleRepository;
 
-        public UserAPIController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IErrorRepository errorRepository, IUserRepository userRepository, IRoleRepository roleRepository)
-            : base(userManager, signInManager, errorRepository)
+        public UserAPIController(IErrorRepository errorRepository, IUserRepository userRepository, IRoleRepository roleRepository, IUserRoleRepository userRoleRepository)
+            : base(errorRepository)
         {
             _userRepository = userRepository;
             _roleRepository = roleRepository;
+            _userRoleRepository = userRoleRepository;
         }
 
         [HttpGet]
         [Route("")]
-        public HttpResponseMessage GetUsers(HttpRequestMessage request)
+        public HttpResponseMessage GetAll(HttpRequestMessage request)
         {
             return CreateHttpResponse(request, () =>
             {
-                var result = UserManager.Users.ToList().ToViewModel();
-                foreach(var i in result)
+                var result = _userRepository.GetAll().ToViewModel();
+                foreach (var i in result)
                 {
                     i.Roles = string.Join(", ", _roleRepository.GetByUser(i.Id).Select(r => r.Name));
                 }
@@ -43,11 +45,11 @@ namespace Cinema.Web.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public HttpResponseMessage GetUser(HttpRequestMessage request, [FromUri]int id)
+        public HttpResponseMessage Get(HttpRequestMessage request, [FromUri]int id)
         {
             return CreateHttpResponse(request, () =>
             {
-                var result = UserManager.FindByIdAsync(id).Result;
+                var result = _userRepository.Get(id);
                 if (result != null)
                 {
                     return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result.ToViewModel()));
@@ -58,7 +60,7 @@ namespace Cinema.Web.Controllers
 
         [HttpGet]
         [Route("{page}/{size}/{searchKey?}")]
-        public HttpResponseMessage GetUsers(HttpRequestMessage request, int page, int size, string searchKey = "")
+        public HttpResponseMessage GetPage(HttpRequestMessage request, int page, int size, string searchKey = "")
         {
             return CreateHttpResponse(request, () =>
             {
@@ -66,7 +68,13 @@ namespace Cinema.Web.Controllers
                 var result = _userRepository.GetListPaging(out total, page, size, searchKey ?? "").ToViewModel();
                 foreach (var i in result)
                 {
-                    i.Roles = string.Join(", ", _roleRepository.GetByUser(i.Id).Select(r => r.Name));
+                    i.ListRole = _roleRepository.GetAll().ToViewModel().ToList();
+                    var roles = _roleRepository.GetByUser(i.Id).ToViewModel();
+                    i.Roles = string.Join(", ", roles.Select(r => r.Name));
+                    foreach(var role in roles)
+                    {
+                        i.ListRole.FirstOrDefault(r => r.Id == role.Id).Enable = true;
+                    }
                 }
                 return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result, total));
             });
@@ -78,6 +86,17 @@ namespace Cinema.Web.Controllers
         {
             var result = _userRepository.Delete(id);
             return request.CreateResponse(HttpStatusCode.OK, new ApiResult(result, result));
+        }
+
+        [HttpPost]
+        [Route("updaterole")]
+        public HttpResponseMessage Insert(HttpRequestMessage request, [FromBody] List<UserRole> userRoles)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var result = _userRoleRepository.UpdateByUser(userRoles);
+                return request.CreateResponse(HttpStatusCode.OK, new ApiResult(result, result));
+            });
         }
     }
 }

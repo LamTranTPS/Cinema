@@ -69,22 +69,24 @@ namespace Cinema.Web
 
         public static async Task CreateScheduleFromDB()
         {
-            var listSchedule = new QuartzScheduleRepository().GetAll(new string[] { "Job" });
+            var listSchedule = new QuartzScheduleRepository().GetAll(true);
             foreach (var schedule in listSchedule)
             {
-                await AddScheduleAsync(schedule);
+                await AddSchedule(schedule);
             }
         }
 
-        public static async Task<bool> AddScheduleAsync(QuartzSchedule schedule)
+        public static async Task<bool> AddSchedule(QuartzSchedule schedule)
         {
             try
             {
                 var typeJob = Type.GetType(schedule.Job.Action);
-                IJobDetail job = JobBuilder.Create(typeJob).Build();
+                IJobDetail job = JobBuilder.Create(typeJob)
+                    .WithIdentity(schedule.ID.ToString())
+                    .Build();
 
                 ITrigger trigger = TriggerBuilder.Create()
-                    .WithIdentity(schedule.ID.ToString())
+                    //.WithIdentity(schedule.ID.ToString())
                      .WithCronSchedule(schedule.TimeExpression)
                     .Build();
                 await Scheduler.ScheduleJob(job, trigger);
@@ -99,7 +101,41 @@ namespace Cinema.Web
         {
             try
             {
+                //await Scheduler.UnscheduleJob(new TriggerKey(scheduleID.ToString()));
                 await Scheduler.DeleteJob(new JobKey(scheduleID.ToString()));
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public static async Task<bool> PauseJob(int scheduleID)
+        {
+            try
+            {
+                var jobKey = new JobKey(scheduleID.ToString());
+                if (await Scheduler.CheckExists(jobKey))
+                {
+                    await Scheduler.PauseJob(jobKey);
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public static async Task<bool> StartJob(int scheduleID)
+        {
+            try
+            {
+                if (!await Scheduler.CheckExists(new JobKey(scheduleID.ToString()))){
+                    var schedule = new QuartzScheduleRepository().Get(scheduleID);
+                    return await AddSchedule(schedule);
+                }
+                await Scheduler.ResumeJob(new JobKey(scheduleID.ToString()));
                 return true;
             }
             catch

@@ -40,7 +40,8 @@
                         <th data-breakpoints="xs">Name</th>
                         <th data-breakpoints="xs">Time as expression</th>
                         <th>Job</th>
-                        <th data-breakpoints="xs sm md" data-title="DOB" class="text-center">Action</th>
+                        <th class="text-center">Status</th>
+                        <th data-breakpoints="xs sm md" data-title="DOB" class="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,6 +50,9 @@
                         <td>{{schedule.name}}</td>
                         <td>{{schedule.timeExpression}}</td>
                         <td>{{schedule.jobName}}</td>
+                        <td class="text-center">
+                            <button class="btn btn-default" ng-click="startOrPause($index)" style="margin-left: 10px"><i ng-class="{'fa fa-pause text-success text-active': schedule.status, 'fa fa-play text-danger text': !schedule.status}"></i></button>
+                        </td>
                         <td class="text-center">
                             <button class="btn btn-default" ng-click="deleteConfirm(schedule.id)" style="margin-left: 10px"><i class="fa fa-trash text-danger text"></i></button>
                         </td>

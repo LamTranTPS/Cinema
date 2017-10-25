@@ -20,5 +20,6 @@ namespace Cinema.Web.Models.ViewModels
         public virtual bool LockoutEnabled { get; set; }
         public virtual int AccessFailedCount { get; set; }
         public virtual string Roles { get; set; }
+        public virtual List<RoleViewModel> ListRole { get; set; }
     }
 }

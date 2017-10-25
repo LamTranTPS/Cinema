@@ -1,93 +1,79 @@
 ﻿using Cinema.Data.Repositories;
 using Cinema.Model.Models;
 using Cinema.Web.Models;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
-using System.Web;
 using System.Web.Http;
 
 namespace Cinema.Web.Controllers
 {
     public class BaseApiController : ApiController
     {
-        private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
+        //private ApplicationSignInManager _signInManager;
+        //private ApplicationUserManager _userManager;
         private IErrorRepository _errorRepository;
 
-        public ApplicationSignInManager SignInManager
-        {
-            get
-            {
-                return _signInManager ?? HttpContext.Current.GetOwinContext().Get<ApplicationSignInManager>();
-            }
-            private set
-            {
-                _signInManager = value;
-            }
-        }
+        //public ApplicationSignInManager SignInManager
+        //{
+        //    get
+        //    {
+        //        return _signInManager ?? HttpContext.Current.GetOwinContext().Get<ApplicationSignInManager>();
+        //    }
+        //    private set
+        //    {
+        //        _signInManager = value;
+        //    }
+        //}
 
-        public ApplicationUserManager UserManager
-        {
-            get
-            {
-                return _userManager ?? HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            private set
-            {
-                _userManager = value;
-            }
-        }
+        //public ApplicationUserManager UserManager
+        //{
+        //    get
+        //    {
+        //        return _userManager ?? HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+        //    }
+        //    private set
+        //    {
+        //        _userManager = value;
+        //    }
+        //}
 
-        public BaseApiController()
+        public BaseApiController(IErrorRepository errorRepository)
         {
-            
-        }
-
-        public BaseApiController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IErrorRepository errorRepository)
-        {
-            UserManager = userManager;
-            SignInManager = signInManager;
             _errorRepository = errorRepository;
         }
 
-        protected IHttpActionResult GetErrorResult(IdentityResult result)
-        {
-            if (result == null)
-            {
-                return InternalServerError();
-            }
+        //protected IHttpActionResult GetErrorResult(IdentityResult result)
+        //{
+        //    if (result == null)
+        //    {
+        //        return InternalServerError();
+        //    }
 
-            if (!result.Succeeded)
-            {
-                if (result.Errors != null)
-                {
-                    foreach (string error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error);
-                    }
-                }
+        //    if (!result.Succeeded)
+        //    {
+        //        if (result.Errors != null)
+        //        {
+        //            foreach (string error in result.Errors)
+        //            {
+        //                ModelState.AddModelError("", error);
+        //            }
+        //        }
 
-                if (ModelState.IsValid)
-                {
-                    // No ModelState errors are available to send, so just return an empty BadRequest.
-                    return BadRequest();
-                }
+        //        if (ModelState.IsValid)
+        //        {
+        //            // No ModelState errors are available to send, so just return an empty BadRequest.
+        //            return BadRequest();
+        //        }
 
-                return BadRequest(ModelState);
-            }
+        //        return BadRequest(ModelState);
+        //    }
 
-            return null;
-        }
-
-
-
-
+        //    return null;
+        //}
 
         protected HttpResponseMessage CreateHttpResponse(HttpRequestMessage requestMessage, Func<HttpResponseMessage> function)
         {
@@ -127,7 +113,7 @@ namespace Cinema.Web.Controllers
             try
             {
                 Error error = new Error();
-                error.Action = "API Request: " + requestMessage.Method +  requestMessage.RequestUri.LocalPath;
+                error.Action = "API Request: " + requestMessage.Method + requestMessage.RequestUri.LocalPath;
                 error.CreatedDate = DateTime.Now;
                 error.Message = ex.Message;
                 error.StackTrace = ex.StackTrace;
@@ -137,10 +123,5 @@ namespace Cinema.Web.Controllers
             {
             }
         }
-
-
-
-
-
     }
 }

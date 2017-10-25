@@ -12,7 +12,8 @@ namespace Cinema.Web.Models.ViewModels
         public string Name { set; get; }
         
         public string TimeExpression { set; get; }
-        
+        public bool Status { set; get; }
+
         public int JobID { set; get; }
         
         public string JobName { set; get; }

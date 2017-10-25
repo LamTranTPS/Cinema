@@ -15,6 +15,11 @@
             parent: "base",
             templateUrl: "/app/compoments/cinemas/cinemaAddView.html",
             controller: "cinemaAddController"
+        }).state("cinemas/edit", {
+            url: "/cinemas/edit/:id",
+            parent: "base",
+            templateUrl: "/app/compoments/cinemas/cinemaEditView.html",
+            controller: "cinemaEditController"
         });
         $urlRouterProvider.otherwise("/cinemas");
     };

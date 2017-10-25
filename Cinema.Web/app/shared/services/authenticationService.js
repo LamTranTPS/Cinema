@@ -2,7 +2,7 @@
     'use strict';
     app.service('authenticationService', ['$http', '$q', '$window',
         function ($http, $q, $window) {
-            var tokenInfo;
+            var tokenInfo = "";
 
             this.setTokenInfo = function (data) {
                 tokenInfo = data;
