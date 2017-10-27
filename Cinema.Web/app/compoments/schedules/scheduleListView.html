@@ -1,0 +1,99 @@
+﻿
+<section class="wrapper" ng-controller="scheduleAddController" style="margin-top: 0px;">
+    <div class="mail-w3agile">
+        
+        <!-- page start-->
+        <div class="row">
+            <div class="col-sm-3 com-w3ls">
+                <section class="panel">
+                    <div class="panel-body">
+                        <h4 class="btn btn-compose">
+                            Filter by film and cinema
+                        </h4>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <p class="control-label text-info"><i class="fa fa-film" /> Film</p>
+                                <select required ng-model="cinema.locationID" ng-options="option.id as option.name for option in listLocation" name="location" class="form-control">
+                                    <option selected value="" disabled>All</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <p class="control-label text-info"><i class="fa fa-building" /> Cinema</p>
+                                <select required ng-model="cinema.locationID" ng-options="option.id as option.name for option in listLocation" name="location" class="form-control">
+                                    <option selected value="" disabled>All</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="panel">
+                    <div class="panel-body">
+                        <h4 class="btn btn-compose">
+                            For Date
+                        </h4>
+                        <ul class="nav nav-pills nav-stacked mail-nav">
+                            <li class="active"><a href="mail.html"> <i class="fa fa-calendar-check-o"></i> Inbox  <span class="label label-danger pull-right inbox-notification">9</span></a></li>
+                            <li><a href="#"> <i class="fa fa-calendar-check-o"></i> Send Mail</a></li>
+                            <li><a href="#"> <i class="fa fa-calendar-check-o"></i> Important</a></li>
+                            <li><a href="#"> <i class="fa fa-calendar-check-o"></i> Drafts <span class="label label-info pull-right inbox-notification">123</span></a></a></li>
+                            <li><a href="#"> <i class="fa fa-calendar-check-o"></i> Trash</a></li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-sm-9 mail-w3agile">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Add new event
+                    </header>
+                    <div class="panel-body">
+                        <div class="position-center">
+                            <form class="form-horizontal" role="form" formnovalidate name="eventAddForm" ng-submit="addEvent()">
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-sm-2 control-label">Event Name</label>
+                                    <div class="col-lg-10">
+                                        <input required type="text" class="form-control" name="name" ng-model="event.name">
+                                        <span ng-show="eventAddForm.name.$invalid" class="text-danger">Enter event name</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-sm-2 control-label">Cinema chain</label>
+                                    <div class="col-lg-10">
+                                        <select required ng-model="event.cinemaChainID" ng-options="option.id as option.name for option in listCinemaChain" name="cinemachain" class="form-control">
+                                            <option value="" disabled>Select chain</option>
+                                        </select>
+                                        <span ng-show="eventAddForm.cinemachain.$invalid" class="text-danger">Select cinema chain</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-sm-2 control-label">Time</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" class="form-control" name="uintprice" ng-model="event.time">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 col-sm-2 control-label">Intro</label>
+                                    <div class="col-lg-10">
+                                        <textarea style="min-height: 200px !important" type="text" class="form-control" name="package" ng-model="event.intro"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-offset-2 col-lg-10">
+                                        <button ng-disabled="eventAddForm.$invalid" type="submit" class="btn btn-primary">Save</button>
+                                        <button ng-click="close()" class="btn btn-default" type="button">Cancel</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- page end-->
+    </div>
+</section>

@@ -72,6 +72,7 @@
     <Compile Include="Crawler\CinemaChainCrawler.cs" />
     <Compile Include="Crawler\LocationCrawler.cs" />
     <Compile Include="Models\CrawlerEventJob.cs" />
+    <Compile Include="Models\BaseJob.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\CrawlerCinemaJob.cs" />
     <Compile Include="Models\CrawlerFilmJob.cs" />

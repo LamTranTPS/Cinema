@@ -1,12 +1,12 @@
 ﻿(function (app) {
-    app.controller("cinemaEditController", cinemaEditController);
+    app.controller("eventEditController", eventEditController);
 
-    cinemaEditController.$inject = ["$scope", '$state', '$stateParams', "apiService", "notifyService"];
-    function cinemaEditController($scope, $state, $stateParams, apiService, notifyService) {
-        $scope.cinema = {
+    eventEditController.$inject = ["$scope", '$state', '$stateParams', "apiService", "notifyService"];
+    function eventEditController($scope, $state, $stateParams, apiService, notifyService) {
+        $scope.event = {
         };
         $scope.close = close;
-        $scope.editCinema = editCinema;
+        $scope.editEvent = editEvent;
 
         function loadCinemaChain() {
             apiService.get("api/cinemachains", null, function (result) {
@@ -20,22 +20,10 @@
             });
         }
 
-        function loadLocation() {
-            apiService.get("api/locations", null, function (result) {
-                $scope.listLocation = result.data.elements;
-                if ($scope.totalCount == 0) {
-                    notifyService.displayWarning('No data found!');
-                }
-            }, function (error) {
-                $scope.error = error;
-                notifyService.displayError(error.xhrStatus);
-            });
-        }
-
-        function loadCinema() {
-            apiService.get("api/cinemas/" + $stateParams.id, null, function (result) {
+        function loadEvent() {
+            apiService.get("api/events/" + $stateParams.id, null, function (result) {
                 if (result.data.success) {
-                    $scope.cinema = result.data.elements;
+                    $scope.event = result.data.elements;
                 } else {
                     notifyService.displayError("Error!");
                 }
@@ -45,11 +33,11 @@
             });
         }
 
-        function editCinema() {
-            var url = "api/cinemas/update";
-            apiService.post(url, $scope.cinema,
+        function editEvent() {
+            var url = "api/events/update";
+            apiService.post(url, $scope.event,
                 function (result) {
-                    notifyService.displaySuccess($scope.cinema.name + ' updated.');
+                    notifyService.displaySuccess($scope.event.name + ' updated.');
                     close();
                 }, function (error) {
                     notifyService.displayError('Error.');
@@ -57,11 +45,10 @@
         }
 
         function close() {
-            $state.go('cinemas');
+            $state.go('events');
         }
-
-        loadLocation();
+        
         loadCinemaChain();
-        loadCinema();
+        loadEvent();
     }
-})(angular.module("adminApp.cinemas"));
+})(angular.module("adminApp.events"));

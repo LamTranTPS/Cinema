@@ -8,6 +8,7 @@
         $scope.pagesCount = 0;
         $scope.totalCount = 0;
         $scope.listUser = [];
+        $scope.listRole = [];
         $scope.searchKey = "";
         $scope.getListUser = getListUser;
         $scope.search = search;
@@ -54,33 +55,40 @@
         }
 
         function showChangeRole(roles) {
-            listRole = roles;
+            $scope.listRole = angular.copy(roles);
         }
 
-        function cancelChangeRole(index) {
-            $scope.listUser[index].listRole = listRole;
-            listRole = [];
+        function cancelChangeRole() {
+            $scope.listRole = [];
         }
 
-        function saveRole(userId) {
+        function saveRole(index) {
             var listRole = [];
+            var roles = "";
             angular.forEach($scope.listRole, function (role) {
                 if (role.enable) {
                     var userRole = {};
-                    userRole.userId = userId;
+                    userRole.userId = $scope.listUser[index].id;
                     userRole.roleId = role.id;
                     listRole.push(userRole);
+                    if (roles) {
+                        roles += ", " + role.name;
+                    } else {
+                        roles += role.name;
+                    }
                 }
             })
             var url = "api/users/updaterole";
             apiService.post(url, listRole,
                 function (result) {
-                    getListUser($scope.page);
+                    $scope.listUser[index].listRole = angular.copy($scope.listRole);
+                    $scope.listUser[index].roles = roles;
+                    $scope.listRole = [];
                     notifyService.displaySuccess("Updated.");
                 }, function (error) {
+                    $scope.listRole = [];
                     notifyService.displayError('Error.');
             });
-
         }
 
         $scope.getListUser(0);

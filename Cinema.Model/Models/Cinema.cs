@@ -56,6 +56,6 @@ namespace Cinema.Model.Models
         [ForeignKey(FOREIGNKEY_CINEMACHAIN)]
         public virtual CinemaChain CinemaChain { set; get; }
 
-        public virtual IEnumerable<Schedule> Schedules { set; get; }
+        public virtual ICollection<Schedule> Schedules { set; get; }
     }
 }

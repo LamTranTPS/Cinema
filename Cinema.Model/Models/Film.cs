@@ -64,6 +64,6 @@ namespace Cinema.Model.Models
 
         public bool? IsHot { set; get; }
 
-        public IEnumerable<Schedule> Schedules { set; get; }
+        public virtual ICollection<Schedule> Schedules { set; get; }
     }
 }

@@ -20,6 +20,10 @@ namespace Cinema.Web.Models.Extensions
         {
             return Mapper.Map<IEnumerable<FilmViewModel>>(self);
         }
+        public static IEnumerable<FilmSelectViewModel> ToSelectViewModel(this IEnumerable<Film> self)
+        {
+            return Mapper.Map<IEnumerable<FilmSelectViewModel>>(self);
+        }
 
         public static Film ToEntityModel(this FilmViewModel self)
         {

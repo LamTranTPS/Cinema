@@ -4,6 +4,7 @@ using Cinema.Web.Models;
 using Cinema.Web.Models.Extensions;
 using Cinema.Web.Models.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -59,6 +60,24 @@ namespace Cinema.Web.Controllers.API
                 int total = 0;
                 var result = _cinemaRepository.GetListPaging(out total, page, size, searchKey ?? "").ToViewModel();
                 return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result, total));
+            });
+        }
+
+        [HttpGet]
+        [Route("film/{filmId}")]
+        public HttpResponseMessage GetByFilm(HttpRequestMessage request, int filmId)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var result = _cinemaRepository.GetByFilm(filmId);
+                List<CinemaViewModel> listViewModel = new List<CinemaViewModel>();
+                foreach(var cinema in result)
+                {
+                    var viewModel = cinema.ToViewModel();
+                    viewModel.ScheduleCount = cinema.Schedules.Where(s => s.FilmID == filmId).Count();
+                    listViewModel.Add(viewModel);
+                }
+                return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, listViewModel, listViewModel.Count));
             });
         }
 

@@ -8,14 +8,15 @@ using System.Threading.Tasks;
 namespace Cinema.Crawler.Models
 {
     
-    public class SimpleJob : IJob
+    public class SimpleJob : BaseJob, IJob
     {
-        private static ErrorRepository _errorRepository = new ErrorRepository(new DbFactory());
+        private ErrorRepository _errorRepository = new ErrorRepository(new DbFactory());
 
         public Task Execute(IJobExecutionContext context)
         {
             var error = new Error()
             {
+                Action = "Schedule ID: " + ScheduleID,
                 CreatedDate = DateTime.Now,
                 Message = "Quartz Simple Job",
             };

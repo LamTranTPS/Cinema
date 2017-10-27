@@ -2,7 +2,7 @@
 using Cinema.Common.Extensions;
 using Cinema.Model.Models;
 using Cinema.Web.Models.ViewModels;
-using Microsoft.AspNet.Identity.EntityFramework;
+using System.Linq;
 
 namespace Cinema.Web
 {
@@ -15,10 +15,14 @@ namespace Cinema.Web
                 //EntityModel to ViewModel
                 config.CreateMap<Role, RoleViewModel>();
                 config.CreateMap<ApplicationUser, UserViewModel>();
-                config.CreateMap<Model.Models.Cinema, CinemaViewModel>().AfterMap((e,v) =>
+                config.CreateMap<Model.Models.Cinema, CinemaViewModel>().AfterMap((e, v) =>
                     v.Alias = e.Name.ToUnsignString());
                 config.CreateMap<Film, FilmViewModel>().AfterMap((e, v) =>
-                    v.Alias = e.Name.ToUnsignString());
+                    {
+                        v.Alias = e.Name.ToUnsignString();
+                        v.ScheduleCount = e.Schedules != null ? e.Schedules.Count() : 0;
+                    });
+                config.CreateMap<Film, FilmSelectViewModel>();
                 config.CreateMap<Event, EventViewModel>().AfterMap((e, v) =>
                     v.Alias = e.Name.ToUnsignString());
                 config.CreateMap<Schedule, ScheduleViewModel>();

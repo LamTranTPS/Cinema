@@ -23,5 +23,6 @@ namespace Cinema.Web.Models.ViewModels
         public string Classification { set; get; }
         public decimal? IMDB { set; get; }
         public bool? IsHot { set; get; }
+        public int? ScheduleCount { get; set; }
     }
 }

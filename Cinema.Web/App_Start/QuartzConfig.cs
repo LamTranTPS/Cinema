@@ -24,7 +24,7 @@ namespace Cinema.Web
                 await _scheduler.Start();
                 //await CreateRepeatJob();
                 //await CreateScheduleJob();
-                await CreateCrawlerDataJob();
+                //await CreateCrawlerDataJob();
                 await CreateScheduleFromDB();
             }
             catch (SchedulerException se)
@@ -57,15 +57,15 @@ namespace Cinema.Web
         //    await Scheduler.ScheduleJob(job, trigger);
         //}
 
-        public static async Task CreateCrawlerDataJob()
-        {
-            IJobDetail job = JobBuilder.Create<CrawlerJob>().Build();
+        //public static async Task CreateCrawlerDataJob()
+        //{
+        //    IJobDetail job = JobBuilder.Create<CrawlerJob>().Build();
 
-            ITrigger trigger = TriggerBuilder.Create()
-                 .WithCronSchedule("00 00 03/15 * * ?")
-                .Build();
-            await Scheduler.ScheduleJob(job, trigger);
-        }
+        //    ITrigger trigger = TriggerBuilder.Create()
+        //         .WithCronSchedule("00 00 03/15 * * ?")
+        //        .Build();
+        //    await Scheduler.ScheduleJob(job, trigger);
+        //}
 
         public static async Task CreateScheduleFromDB()
         {
@@ -84,7 +84,7 @@ namespace Cinema.Web
                 IJobDetail job = JobBuilder.Create(typeJob)
                     .WithIdentity(schedule.ID.ToString())
                     .Build();
-
+                job.JobDataMap["ScheduleID"] = schedule.ID;
                 ITrigger trigger = TriggerBuilder.Create()
                     //.WithIdentity(schedule.ID.ToString())
                      .WithCronSchedule(schedule.TimeExpression)

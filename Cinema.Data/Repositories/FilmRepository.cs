@@ -7,7 +7,7 @@ namespace Cinema.Data.Repositories
 {
     public interface IFilmRepository: IRepository<Film>
     {
-        IEnumerable<Film> GetListPaging(out int total, int page = 0, int size = 50, string searchKey = null, string[] includes = null);
+        IEnumerable<Film> GetListPaging(out int total, int page = 0, int size = 50, string searchKey = null);
     }
 
     public class FilmRepository : RepositoryBase<Film>, IFilmRepository
@@ -21,8 +21,9 @@ namespace Cinema.Data.Repositories
             
         }
 
-        public IEnumerable<Film> GetListPaging(out int total, int page = 0, int size = 50, string searchKey = null, string[] includes = null)
+        public IEnumerable<Film> GetListPaging(out int total, int page = 0, int size = 50, string searchKey = null)
         {
+            var includes = new string[] { "Schedules" };
             if (string.IsNullOrEmpty(searchKey))
             {
                 return GetListPaging(o => o.OrderBy(f => f.Name), out total, page, size, null, includes);

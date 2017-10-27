@@ -1,16 +1,12 @@
-﻿using Cinema.Data.Infrastructure;
-using Cinema.Data.Repositories;
+﻿using Cinema.Data.Repositories;
 using Cinema.Model.Models;
 using Fizzler.Systems.HtmlAgilityPack;
 using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Web;
+using System.Net;
 
 namespace Cinema.Crawler.Crawler
 {
@@ -70,6 +66,7 @@ namespace Cinema.Crawler.Crawler
                     eventCrawler.LinkImage = eventHtml.QuerySelector("img.lazyload").Attributes["data-src"].Value.Trim();
                     eventCrawler.Name = eventHtml.QuerySelector("h3.offer-title").InnerText.Trim();
                     eventCrawler.Time = eventHtml.QuerySelector("div.period").InnerText.Trim();
+                    eventCrawler.Time = WebUtility.HtmlDecode(eventCrawler.Time);
                     if (eventCrawler.Time != null && !eventCrawler.Time.ToUpper().Contains("TỪ"))
                     {
                         int index = eventCrawler.Time.LastIndexOf(" ");

@@ -25,6 +25,21 @@ namespace Cinema.Web.Controllers.API
         }
 
         [HttpGet]
+        [Route("{id}")]
+        public HttpResponseMessage Get(HttpRequestMessage request, [FromUri]int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var result = _eventRepository.Get(id);
+                if (result != null)
+                {
+                    return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result.ToViewModel()));
+                }
+                return request.CreateResponse(HttpStatusCode.NotFound, new ApiResult(false, "Id not found!"));
+            });
+        }
+
+        [HttpGet]
         [Route("")]
         public HttpResponseMessage GetAll(HttpRequestMessage request)
         {
@@ -69,6 +84,17 @@ namespace Cinema.Web.Controllers.API
                 TimeSpan span = current - dt1970;
                 eventVM.ID = (int)span.TotalMilliseconds;
                 var result = _eventRepository.Add(eventVM.ToEntityModel());
+                return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result));
+            });
+        }
+
+        [HttpPost]
+        [Route("update")]
+        public HttpResponseMessage Update(HttpRequestMessage request, [FromBody] EventViewModel _event)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var result = _eventRepository.Update(_event.ToEntityModel());
                 return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result));
             });
         }

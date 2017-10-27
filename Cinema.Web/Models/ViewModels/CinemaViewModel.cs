@@ -20,5 +20,7 @@ namespace Cinema.Web.Models.ViewModels
         public string CinemaChainID { set; get; }
         public string LocationName { set; get; }
         public string CinemaChainName { set; get; }
+
+        public int? ScheduleCount { get; set; }
     }
 }

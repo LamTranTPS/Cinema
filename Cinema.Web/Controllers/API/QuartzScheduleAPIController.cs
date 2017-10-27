@@ -80,8 +80,11 @@ namespace Cinema.Web.Controllers
             return CreateHttpResponse(request, () =>
             {
                 var result = _quartzScheduleRepository.Add(schedule.ToEntityModel());
-                var newSchedule = _quartzScheduleRepository.Get(s => s.ID == result.ID);
-                return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result));
+                if (schedule.Status)
+                {
+                    QuartzConfig.StartJob(result.ID).Wait();
+                }
+                return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result.ToViewModel()));
             });
         }
 

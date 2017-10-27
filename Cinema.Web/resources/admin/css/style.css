@@ -1919,11 +1919,11 @@ a.mail-dropdown {
     padding:20px;
 }
 .btn-compose {
-    background:#f0bcb4;
-    padding:12px 0;
-    text-align:center;
-    width:100%;
-    color:#fff;
+    background: #1ca59e;
+    padding: 12px 0;
+    text-align: center;
+    width: 100%;
+    color: #fff;
 }
 .btn-compose:hover,.btn-compose:focus {
     background:#1ca59e;

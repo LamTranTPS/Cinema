@@ -53,12 +53,12 @@
                                 <div style="min-width:500px !important" class="modal-dialog modal-sm">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <button ng-click="cancelChangeRole($index)" type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <button ng-click="cancelChangeRole()" type="button" class="close" data-dismiss="modal">&times;</button>
                                             <h3 class="text-center">Roles of {{user.userName}}</h3>
                                         </div>
                                         <div class="modal-body">
                                             <h4>Select roles</h4>                                            
-                                            <div ng-repeat="role in user.listRole" class="form-group">
+                                            <div ng-repeat="role in listRole" class="form-group">
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" ng-model="role.enable" ng-checked="role.enable">{{role.name}}
@@ -69,8 +69,8 @@
                                             <!--<a class="btn btn-default" href="#" data-target="#addNewRole" data-toggle="modal" data-dismiss="modal"><i class="fa fa-plus text-success text-active fa-lg"></i></a>-->
                                         </div>
                                         <div class="modal-footer">
-                                            <button ng-click="cancelChangeRole($index)" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                            <button ng-click="saveRole(user.id)" type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                                            <button ng-click="cancelChangeRole()" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                            <button ng-click="saveRole($index)" type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
                                         </div>
                                     </div>
                                 </div>

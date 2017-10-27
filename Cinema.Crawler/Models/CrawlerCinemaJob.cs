@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.Crawler.Models
 {
-    public class CrawlerCinemaJob : IJob
+    public class CrawlerCinemaJob : BaseJob, IJob
     {
         private static CrawlerData _crawlerData = new CrawlerData();
 

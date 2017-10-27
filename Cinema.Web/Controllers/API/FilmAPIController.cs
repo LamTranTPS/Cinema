@@ -36,6 +36,17 @@ namespace Cinema.Web.Controllers.API
         }
 
         [HttpGet]
+        [Route("selecttype")]
+        public HttpResponseMessage GetSelectType(HttpRequestMessage request)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var result = _filmRepository.GetAll().ToViewModel();
+                return request.CreateResponse(HttpStatusCode.OK, new ApiResult(true, result, result.Count()));
+            });
+        }
+
+        [HttpGet]
         [Route("{page}/{size}/{searchKey?}")]
         public HttpResponseMessage GetPage(HttpRequestMessage request, int page, int size, string searchKey = "")
         {

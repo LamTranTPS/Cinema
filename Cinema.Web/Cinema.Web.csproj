@@ -301,6 +301,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MeViewModels.cs" />
     <Compile Include="Models\ViewModels\CinemaViewModel.cs" />
+    <Compile Include="Models\ViewModels\FilmSelectViewModel.cs" />
     <Compile Include="Models\ViewModels\ScheduleViewModel.cs" />
     <Compile Include="Models\ViewModels\EventViewModel.cs" />
     <Compile Include="Models\ViewModels\FilmViewModel.cs" />
@@ -316,6 +317,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\compoments\schedules\filmAddController.js" />
+    <Content Include="app\compoments\schedules\filmAddView - Copy.html" />
+    <Content Include="app\compoments\schedules\filmAddView.html" />
+    <Content Include="app\compoments\schedules\filmEditController.js" />
+    <Content Include="app\compoments\schedules\filmEditView.html" />
+    <Content Include="app\compoments\schedules\scheduleListController.js" />
+    <Content Include="app\compoments\schedules\scheduleListView.html" />
+    <Content Include="app\compoments\schedules\schedules.module.js" />
+    <Content Include="app\compoments\films\filmAddController.js" />
+    <Content Include="app\compoments\films\filmAddView.html" />
+    <Content Include="app\compoments\films\filmEditController.js" />
+    <Content Include="app\compoments\films\filmEditView.html" />
+    <Content Include="app\compoments\films\filmListController.js" />
+    <Content Include="app\compoments\films\filmListView.html" />
+    <Content Include="app\compoments\films\films.module.js" />
     <Content Include="app\compoments\events\eventAddController.js" />
     <Content Include="app\compoments\events\eventAddView.html" />
     <Content Include="app\compoments\events\eventEditController.js" />

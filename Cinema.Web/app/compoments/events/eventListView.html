@@ -37,10 +37,10 @@
                 <thead>
                     <tr>
                         <th data-breakpoints="xs">ID</th>
-                        <th data-breakpoints="xs">Event Name</th>
-                        <th data-breakpoints="xs">Alias</th>
+                        <th data-breakpoints="xs">Name</th>
                         <th data-breakpoints="xs">Cinema Chain</th>
                         <th>Time</th>
+                        <th>End Time</th>
                         <th style="min-width:150px !important" data-breakpoints="xs sm md" data-title="DOB" class="text-center">Actions</th>
                     </tr>
                 </thead>
@@ -48,9 +48,9 @@
                     <tr ng-repeat="event in listEvent" data-expanded="true">
                         <td>{{event.id}}</td>
                         <td>{{event.name}}</td>
-                        <td>{{event.alias}}</td>
                         <td>{{event.cinemaChainName}}</td>
                         <td>{{event.time}}</td>
+                        <td>{{event.endTime | date:'dd/MM/yyyy'}}</td>
                         <td class="text-center">
                             <button class="btn btn-default" ui-sref="events/edit({id: event.id})"><i class="fa fa-pencil text-primary text-active"></i></button>
                             <button class="btn btn-default" ng-click="deleteConfirm(event.id)" style="margin-left: 10px"><i class="fa fa-trash text-danger text"></i></button>
