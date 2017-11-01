@@ -1220,3 +1220,7 @@ C:\Users\lam.tran\Downloads\Cinema\Cinema.Web\bin\Fizzler.xml
 C:\Users\lam.tran\Downloads\Cinema\Cinema.Web\obj\Debug\Cinema.Web.csprojResolveAssemblyReference.cache
 C:\Users\lam.tran\Downloads\Cinema\Cinema.Web\obj\Debug\Cinema.Web.dll
 C:\Users\lam.tran\Downloads\Cinema\Cinema.Web\obj\Debug\Cinema.Web.pdb
+C:\Users\lam.tran\Downloads\Cinema\Cinema.Web\bin\log4net.dll
+C:\Users\lam.tran\Downloads\Cinema\Cinema.Web\bin\PayPal.dll
+C:\Users\lam.tran\Downloads\Cinema\Cinema.Web\bin\log4net.xml
+C:\Users\lam.tran\Downloads\Cinema\Cinema.Web\bin\PayPal.xml

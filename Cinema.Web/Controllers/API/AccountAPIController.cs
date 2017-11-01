@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace Cinema.Web.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/account")]
     public class AccountAPIController : BaseApiController
     {
@@ -21,7 +22,6 @@ namespace Cinema.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         [Route("login")]
         public async Task<HttpResponseMessage> Login(HttpRequestMessage request, [FromBody] AccountLogin account)
         {
@@ -39,7 +39,6 @@ namespace Cinema.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         [Route("CheckLogin")]
         public ApiResult CheckLogin()
         {

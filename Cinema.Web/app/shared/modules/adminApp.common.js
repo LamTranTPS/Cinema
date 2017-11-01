@@ -1,3 +1,3 @@
 ﻿(function () {
-    angular.module("adminApp.common", ["ui.router", "ngBootbox"]);
+    angular.module("adminApp.common", ["ui.router", "ngBootbox", "mkBlock"]);
 })();

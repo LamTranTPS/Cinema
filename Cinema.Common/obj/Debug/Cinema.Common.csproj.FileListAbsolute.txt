@@ -22,3 +22,8 @@ C:\Users\tranh\Desktop\Cinema\Cinema.Common\bin\Debug\Cinema.Common.pdb
 C:\Users\tranh\Desktop\Cinema\Cinema.Common\obj\Debug\Cinema.Common.csprojResolveAssemblyReference.cache
 C:\Users\tranh\Desktop\Cinema\Cinema.Common\obj\Debug\Cinema.Common.dll
 C:\Users\tranh\Desktop\Cinema\Cinema.Common\obj\Debug\Cinema.Common.pdb
+C:\Users\lam.tran\Downloads\Cinema\Cinema.Common\bin\Debug\Cinema.Common.dll
+C:\Users\lam.tran\Downloads\Cinema\Cinema.Common\bin\Debug\Cinema.Common.pdb
+C:\Users\lam.tran\Downloads\Cinema\Cinema.Common\obj\Debug\Cinema.Common.csprojResolveAssemblyReference.cache
+C:\Users\lam.tran\Downloads\Cinema\Cinema.Common\obj\Debug\Cinema.Common.dll
+C:\Users\lam.tran\Downloads\Cinema\Cinema.Common\obj\Debug\Cinema.Common.pdb

@@ -1,6 +1,6 @@
 ﻿
 (function () {
-    angular.module("adminApp", ["adminApp.schedules", "adminApp.films", "adminApp.events","adminApp.quartzSchedules", "adminApp.cinemas", "adminApp.users", "adminApp.common"]).config(config).config(configAuthentication);
+    angular.module("adminApp", ["adminApp.paypals", "adminApp.schedules", "adminApp.films", "adminApp.events","adminApp.quartzSchedules", "adminApp.cinemas", "adminApp.users", "adminApp.common"]).config(config).config(configAuthentication);
 
     config.$inject = ["$stateProvider", "$urlRouterProvider"]
     function config($stateProvider, $urlRouterProvider) {
