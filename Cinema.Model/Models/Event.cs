@@ -10,7 +10,7 @@ namespace Cinema.Model.Models
         public const int MAX_LENGTH_NAME = 100;
         public const int MAX_LENGTH_TIME = 50;
         public const int MAX_LENGTH_LINK_IMAGE = 200;
-        public const int MAX_LENGTH_INTRO = 4000;
+        public const int MAX_LENGTH_INTRO = int.MaxValue;
 
         public const string FOREIGNKEY_CINEMA_CHAIN = "CinemaChainID";
         

@@ -42,7 +42,7 @@ namespace Cinema.Crawler.Crawler
                 {
                     cinemaChainCrawler = new CinemaChain();
                     cinemaChainCrawler.ID = id;
-                    cinemaChainCrawler.Name = cinemaChainHtml.InnerText.Trim();
+                    cinemaChainCrawler.Name = HttpUtility.HtmlDecode(cinemaChainHtml.InnerText.Trim());
                     listCinemaChain.Add(cinemaChainCrawler);
                 }
             }

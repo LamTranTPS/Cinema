@@ -386,10 +386,6 @@
     <Content Include="app\shared\services\loginService.js" />
     <Content Include="app\shared\services\notifyService.js" />
     <Content Include="app\shared\views\baseView.html" />
-    <Content Include="App_Data\CinemaMDB.mdf" />
-    <Content Include="App_Data\CinemaMDB_log.ldf">
-      <DependentUpon>CinemaMDB.mdf</DependentUpon>
-    </Content>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="bower_components\angular-loaders\demo\demo.css" />
@@ -923,6 +919,7 @@
   <ItemGroup>
     <Folder Include="app\shared\footer\" />
     <Folder Include="app\shared\navigation\" />
+    <Folder Include="App_Data\" />
     <Folder Include="resources\client\" />
   </ItemGroup>
   <ItemGroup>

@@ -63,7 +63,7 @@ namespace Cinema.Crawler.Crawler
                 }
                 if (!FilmRepository.Contains(filmCrawler.ID))
                 {
-                    filmCrawler.Name = filmHtml.QuerySelector("h3.movie-title > a").ChildNodes[0].InnerText.Trim();
+                    filmCrawler.Name = HttpUtility.HtmlDecode(filmHtml.QuerySelector("h3.movie-title > a").ChildNodes[0].InnerText.Trim());
                     filmCrawler.LinkPoster = filmHtml.QuerySelector("img.poster").Attributes["src"].Value.Replace("/w80/", "/w800/").Trim();
                     try
                     {
@@ -122,25 +122,25 @@ namespace Cinema.Crawler.Crawler
                         stringPremiere += item.QuerySelector("td").InnerText.Trim();
                         break;
                     case "Thời lượng":
-                        film.Time = item.QuerySelector("td").InnerText.Trim();
+                        film.Time = HttpUtility.HtmlDecode(item.QuerySelector("td").InnerText.Trim());
                         break;
                     case "Thể loại":
-                        film.Genre = item.QuerySelector("td").InnerText.Trim();
+                        film.Genre = HttpUtility.HtmlDecode(item.QuerySelector("td").InnerText.Trim());
                         break;
                     case "Phân loại người xem":
-                        film.Classification = item.QuerySelector("td").InnerText.Trim();
+                        film.Classification = HttpUtility.HtmlDecode(item.QuerySelector("td").InnerText.Trim());
                         break;
                     case "Diễn viên":
-                        film.Actor = item.QuerySelector("td").InnerText.Trim();
+                        film.Actor = HttpUtility.HtmlDecode(item.QuerySelector("td").InnerText.Trim());
                         break;
                     case "Đạo diễn":
-                        film.Director = item.ChildNodes[3].InnerText.Trim();
+                        film.Director = HttpUtility.HtmlDecode(item.ChildNodes[3].InnerText.Trim());
                         break;
                     case "Năm":
                         stringPremiere += "/" + item.ChildNodes[3].InnerText.Trim();
                         break;
                     case "Sản xuất":
-                        film.Country = item.ChildNodes[3].InnerText.Trim();
+                        film.Country = HttpUtility.HtmlDecode(item.ChildNodes[3].InnerText.Trim());
                         break;
                 }
             }
@@ -151,7 +151,7 @@ namespace Cinema.Crawler.Crawler
             catch (Exception) { }
             var htmlTrailer = document.DocumentNode.QuerySelectorAll("script").ToList();
             film.LinkTrailer = subTrailer(htmlTrailer[htmlTrailer.Count - 2].InnerHtml.Trim());
-            film.Intro = document.DocumentNode.QuerySelector("div.movie-description").InnerText.Trim();
+            film.Intro = HttpUtility.HtmlDecode(document.DocumentNode.QuerySelector("div.movie-description").InnerText.Trim());
             new FilmRepository().Add(film);
         }
 
@@ -214,7 +214,7 @@ namespace Cinema.Crawler.Crawler
                     schedule.ID = schedule.FilmID + "/" + schedule.CinemaID + "/" + datetime;
                     if (!new ScheduleRepository().Contains(schedule.ID) && listSchedule.FirstOrDefault(s => s.ID == schedule.ID) == null)
                     {
-                        schedule.Type = htmlSchedule.QuerySelector("span.slot-group-label").InnerText.Trim().Replace(" ", "");
+                        schedule.Type = HttpUtility.HtmlDecode(htmlSchedule.QuerySelector("span.slot-group-label").InnerText.Trim().Replace(" ", ""));
                         string strEncoded = value.Attributes["href"].Value.Trim().Replace("/chuyen-tiep?url=", "");
                         schedule.LinkTicket = HttpUtility.UrlDecode(WebUtility.UrlDecode(strEncoded));
                         if (schedule.LinkTicket.Contains("alert("))

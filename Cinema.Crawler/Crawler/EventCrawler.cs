@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
+using System.Web;
 
 namespace Cinema.Crawler.Crawler
 {
@@ -64,8 +65,8 @@ namespace Cinema.Crawler.Crawler
                     eventCrawler.ID = id;
                     eventCrawler.CinemaChainID = chainID;
                     eventCrawler.LinkImage = eventHtml.QuerySelector("img.lazyload").Attributes["data-src"].Value.Trim();
-                    eventCrawler.Name = eventHtml.QuerySelector("h3.offer-title").InnerText.Trim();
-                    eventCrawler.Time = eventHtml.QuerySelector("div.period").InnerText.Trim();
+                    eventCrawler.Name = HttpUtility.HtmlDecode(eventHtml.QuerySelector("h3.offer-title").InnerText.Trim());
+                    eventCrawler.Time = HttpUtility.HtmlDecode(eventHtml.QuerySelector("div.period").InnerText.Trim());
                     eventCrawler.Time = WebUtility.HtmlDecode(eventCrawler.Time);
                     if (eventCrawler.Time != null && !eventCrawler.Time.ToUpper().Contains("TỪ"))
                     {
@@ -100,7 +101,7 @@ namespace Cinema.Crawler.Crawler
         private Event LoadEvent(Event _event, string url)
         {
             HtmlDocument document = _htmlWeb.Load(eventUrl.Replace("/khuyen-mai", url));
-            _event.Intro = document.DocumentNode.QuerySelector("div.offer-cnt").InnerText.Trim();
+            _event.Intro = HttpUtility.HtmlDecode(document.DocumentNode.QuerySelector("div.offer-cnt").InnerText.Trim());
             new EventRepository().Add(_event);
             return _event;
         }

@@ -25,7 +25,7 @@ namespace Cinema.Web
 
             QuartzConfig.RegisterAsync().Wait();
 
-            //new Thread(Crawler).Start();
+            new Thread(Crawler).Start();
 
             //GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings
             //    .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;

@@ -61,13 +61,9 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201710240718082_initDB.cs" />
-    <Compile Include="Migrations\201710240718082_initDB.Designer.cs">
-      <DependentUpon>201710240718082_initDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201710250944441_updateFilm.cs" />
-    <Compile Include="Migrations\201710250944441_updateFilm.Designer.cs">
-      <DependentUpon>201710250944441_updateFilm.cs</DependentUpon>
+    <Compile Include="Migrations\201711020324185_initDB.cs" />
+    <Compile Include="Migrations\201711020324185_initDB.Designer.cs">
+      <DependentUpon>201711020324185_initDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,11 +95,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710240718082_initDB.resx">
-      <DependentUpon>201710240718082_initDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201710250944441_updateFilm.resx">
-      <DependentUpon>201710250944441_updateFilm.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711020324185_initDB.resx">
+      <DependentUpon>201711020324185_initDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

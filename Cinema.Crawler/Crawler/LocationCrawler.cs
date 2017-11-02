@@ -46,7 +46,7 @@ namespace Cinema.Crawler.Crawler
                         i++;
                         locationCrawler = new Location();
                         locationCrawler.ID = id;
-                        locationCrawler.Name = listLocationHtml.ChildNodes[i].InnerText.Trim();
+                        locationCrawler.Name = HttpUtility.HtmlDecode(listLocationHtml.ChildNodes[i].InnerText.Trim());
                         listLocation.Add(locationCrawler);
                     }
                 }

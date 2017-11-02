@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -34,9 +36,24 @@ namespace Cinema.Data.Infrastructure
 
         public virtual T Add(T entity)
         {
-            var res = dbSet.Add(entity);
-            DbContext.SaveChanges();
-            return res;
+            try
+            {
+                var res = dbSet.Add(entity);
+                DbContext.SaveChanges();
+                return res;
+            }
+            catch (DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Trace.WriteLine("Entity of type " + eve.Entry.Entity.GetType().Name  + " in state " + eve.Entry.State + " has the following validation errors:");
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Trace.WriteLine("- Property: " + ve.PropertyName + ", Error: " + ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
         }
 
         public virtual bool AddRange(IEnumerable<T> entitys)

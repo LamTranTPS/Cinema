@@ -39,7 +39,6 @@ namespace Cinema.Web
             builder.RegisterAssemblyTypes(typeof(ErrorRepository).Assembly)
                  .Where(t => t.Name.EndsWith("Repository"))
                  .AsImplementedInterfaces().InstancePerRequest();
-            
 
             IContainer container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

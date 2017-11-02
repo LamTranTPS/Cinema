@@ -14,7 +14,7 @@ namespace Cinema.Model.Models
         public const int MAX_LENGTH_LINK_TRAILER = 200;
         public const int MAX_LENGTH_LINK_POSTER = 200;
         public const int MAX_LENGTH_LINK_IMAGE = 200;
-        public const int MAX_LENGTH_INTRO = 4000;
+        public const int MAX_LENGTH_INTRO = int.MaxValue;
         public const int MAX_LENGTH_ACTOR = 100;
         public const int MAX_LENGTH_DIRECTOR = 200;
         public const int MAX_LENGTH_COUNTRY = 50;

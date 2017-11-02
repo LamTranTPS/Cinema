@@ -11,7 +11,7 @@ namespace Cinema.Model.Models
         public const int MAX_LENGTH_LINK_IMAGE = 200;
         public const int MAX_LENGTH_PHONE_NUMBER = 30;
         public const int MAX_LENGTH_ADDRESS = 300;
-        public const int MAX_LENGTH_INTRO = 4000;
+        public const int MAX_LENGTH_INTRO = int.MaxValue;
 
         public const string FOREIGNKEY_LOCATION = "LocationID";
         public const string FOREIGNKEY_CINEMACHAIN = "CinemaChainID";

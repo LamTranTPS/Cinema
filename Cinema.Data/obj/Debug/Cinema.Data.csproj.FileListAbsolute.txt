@@ -152,8 +152,7 @@ C:\Users\lam.tran\Downloads\Cinema\Cinema.Data\bin\Debug\EntityFramework.SqlServ
 C:\Users\lam.tran\Downloads\Cinema\Cinema.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\lam.tran\Downloads\Cinema\Cinema.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\lam.tran\Downloads\Cinema\Cinema.Data\obj\Debug\Cinema.Data.csprojResolveAssemblyReference.cache
-C:\Users\lam.tran\Downloads\Cinema\Cinema.Data\obj\Debug\Cinema.Data.Migrations.initDB.resources
-C:\Users\lam.tran\Downloads\Cinema\Cinema.Data\obj\Debug\Cinema.Data.csproj.GenerateResource.Cache
 C:\Users\lam.tran\Downloads\Cinema\Cinema.Data\obj\Debug\Cinema.Data.dll
 C:\Users\lam.tran\Downloads\Cinema\Cinema.Data\obj\Debug\Cinema.Data.pdb
-C:\Users\lam.tran\Downloads\Cinema\Cinema.Data\obj\Debug\Cinema.Data.Migrations.updateFilm.resources
+C:\Users\lam.tran\Downloads\Cinema\Cinema.Data\obj\Debug\Cinema.Data.Migrations.initDB.resources
+C:\Users\lam.tran\Downloads\Cinema\Cinema.Data\obj\Debug\Cinema.Data.csproj.GenerateResource.Cache

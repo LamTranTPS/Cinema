@@ -47,7 +47,7 @@ namespace Cinema.Crawler.Crawler
                     var cinemaCrawler = new Model.Models.Cinema();
                     cinemaCrawler.ID = id;
                     cinemaCrawler.LocationID = cinemaHtml.Attributes["class"].Value.Replace("list-group-item cinema-option city-", "").Trim();
-                    cinemaCrawler.Name = cinemaHtml.QuerySelector("h4").InnerText.Trim();
+                    cinemaCrawler.Name = HttpUtility.HtmlDecode(cinemaHtml.QuerySelector("h4").InnerText.Trim());
                     var chain = _cinemaChainRepository.Get(c => cinemaCrawler.Name.Contains(c.Name));
                     if (chain != null)
                     {
@@ -77,8 +77,8 @@ namespace Cinema.Crawler.Crawler
             var addressAndPhone = document.DocumentNode.QuerySelectorAll("dl.dl-horizontal > dd").ToList();
             if (addressAndPhone.Count > 1)
             {
-                cinema.Address = addressAndPhone[0].InnerText.Trim();
-                cinema.PhoneNumber = addressAndPhone[1].InnerText.Trim();
+                cinema.Address = HttpUtility.HtmlDecode(addressAndPhone[0].InnerText.Trim());
+                cinema.PhoneNumber = HttpUtility.HtmlDecode(addressAndPhone[1].InnerText.Trim());
             }
             try
             {
@@ -88,7 +88,7 @@ namespace Cinema.Crawler.Crawler
             {
                 cinema.LinkImage = "";
             }
-            cinema.Intro = document.DocumentNode.QuerySelector("div.cinema-description").InnerText.Trim();
+            cinema.Intro = HttpUtility.HtmlDecode(document.DocumentNode.QuerySelector("div.cinema-description").InnerText.Trim());
             try
             {
                 var htmlMaps = document.DocumentNode.QuerySelector("button#cinema-map-show-btn");
